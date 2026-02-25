@@ -45,8 +45,7 @@ body {
 }
 
 /* HERO */
-/* HERO IMPACTO */
-/* HERO CINEMATIC */
+/* HERO MODERNO LIMPIO */
 
 .hero {
     height: 100vh;
@@ -58,77 +57,86 @@ body {
     color: white;
     text-align: center;
     overflow: hidden;
-    animation: slowZoom 20s ease-in-out infinite alternate;
+    animation: slowZoom 25s ease-in-out infinite alternate;
 }
 
-/* Zoom cinematográfico */
+/* Zoom cinematográfico suave */
 @keyframes slowZoom {
     from { background-size: 100%; }
-    to { background-size: 110%; }
+    to { background-size: 108%; }
 }
 
-/* ESTRELLAS (detrás del overlay pero sobre la imagen) */
-.stars {
-    position: absolute;
-    inset: 0;
-    z-index: 1;
-    background:
-        radial-gradient(2px 2px at 20% 30%, white, transparent),
-        radial-gradient(1.5px 1.5px at 70% 60%, white, transparent),
-        radial-gradient(2px 2px at 40% 80%, white, transparent),
-        radial-gradient(1px 1px at 80% 20%, white, transparent),
-        radial-gradient(1.5px 1.5px at 55% 45%, white, transparent);
-    animation: twinkle 6s infinite alternate;
-    opacity: 0.5;
-}
-
-@keyframes twinkle {
-    from { opacity: 0.2; }
-    to { opacity: 0.6; }
-}
-
-/* OVERLAY */
+/* Overlay elegante */
 .hero-overlay {
     position: absolute;
     inset: 0;
-    z-index: 2;
-    background:
-        radial-gradient(circle at center, rgba(0,0,0,0.2), rgba(0,0,0,0.85)),
-        linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.9));
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.6),
+        rgba(0,0,0,0.8)
+    );
 }
 
-/* CONTENIDO (siempre arriba) */
+/* Contenido */
 .hero-content {
     position: relative;
-    z-index: 3;
-    max-width: 900px;
-}
-
-/* Línea orbital (encima del overlay pero debajo del texto) */
-.orbit-line {
-    position: absolute;
-    width: 200%;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #38bdf8, transparent);
-    top: 65%;
-    left: -100%;
-    animation: orbit 8s linear infinite;
-    opacity: 0.6;
     z-index: 2;
+    max-width: 900px;
+    animation: fadeUp 1.2s ease-out;
 }
 
-@keyframes orbit {
-    from { left: -100%; }
-    to { left: 100%; }
+/* Animación entrada elegante */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.highlight {
+    display: inline-block;
+    background: linear-gradient(90deg, #38bdf8, #2563eb);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.hero-subtitle {
+    margin: 30px 0 45px;
+    font-size: 1.2rem;
+    opacity: 0.85;
+}
+
+/* Botón moderno */
 .btn-primary {
-    background: #2563eb;
+    background: linear-gradient(90deg, #2563eb, #38bdf8);
     color: white;
-    padding: 12px 25px;
-    border-radius: 30px;
+    padding: 14px 32px;
+    border-radius: 40px;
     text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+    box-shadow: 0 10px 30px rgba(37,99,235,0.4);
 }
+
+.btn-primary:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 40px rgba(37,99,235,0.6);
+}
+
+
 
 /* ABOUT */
 .about {

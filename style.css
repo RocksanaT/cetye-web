@@ -11,3 +11,51 @@ color:#38bdf8;
 text-decoration:none;
 font-weight:bold;
 }
+
+.hero-small {
+    height: 40vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #1e293b;
+    text-align: center;
+}
+
+.accordion {
+    max-width: 800px;
+    margin: auto;
+}
+
+.accordion-btn {
+    background: #0f172a;
+    color: #38bdf8;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.accordion-btn:hover {
+    background: #1e293b;
+}
+
+.accordion-content {
+    display: none;
+    padding: 15px 20px;
+    background: #0f172a;
+    border-radius: 10px;
+}
+
+.accordion-content ul {
+    list-style: none;
+}
+
+.accordion-content li {
+    padding: 8px 0;
+}

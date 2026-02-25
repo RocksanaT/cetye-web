@@ -19,16 +19,20 @@ body {
 .navbar {
     position: fixed;
     width: 100%;
-    padding: 20px 0;
+    height: 80px;   /* ← altura fija */
+    padding: 0;     /* quita padding vertical */
     background: rgba(0,0,0,0.6);
     backdrop-filter: blur(10px);
     z-index: 1000;
+    display: flex;
+    align-items: center;
 }
 
 .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    height: 100%;
 }
 
 .navbar nav a {
@@ -47,7 +51,7 @@ body {
 }
 
 .logo img {
-    height: 45px;
+    height: 60px;
     width: auto;
     filter: brightness(0) invert(1); /* quita si usas logo blanco */
 }

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cursos - CETyE</title>
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        <h1 class="logo">CETyE</h1>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="cursos.html">Cursos</a>
+            <a href="index.html#contacto">Contacto</a>
+        </nav>
+    </div>
+</header>
+
+<section class="hero-small">
+    <h2>Nuestros Programas de Capacitación</h2>
+</section>
+
+<section class="section">
+
+<div class="accordion">
+
+    <button class="accordion-btn">🌍 Geoespacial</button>
+    <div class="accordion-content">
+        <ul>
+            <li>Procesamiento de Imágenes Sentinel-2</li>
+            <li>Radar SAR Aplicado</li>
+            <li>Análisis de Series Temporales</li>
+        </ul>
+    </div>
+
+    <button class="accordion-btn">🚀 Aeronáutica y Espacial</button>
+    <div class="accordion-content">
+        <ul>
+            <li>Fundamentos de Sistemas Satelitales</li>
+            <li>Observación de la Tierra</li>
+        </ul>
+    </div>
+
+    <button class="accordion-btn">📊 Ciencia de Datos</button>
+    <div class="accordion-content">
+        <ul>
+            <li>Machine Learning Geoespacial</li>
+            <li>Arquitecturas de Data Cubes</li>
+        </ul>
+    </div>
+
+    <button class="accordion-btn">💡 Innovación y Gestión</button>
+    <div class="accordion-content">
+        <ul>
+            <li>Formulación de Proyectos I+D</li>
+            <li>Gestión Tecnológica y Transferencia</li>
+        </ul>
+    </div>
+
+</div>
+
+</section>
+
+<script>
+const acc = document.querySelectorAll(".accordion-btn");
+
+acc.forEach(btn => {
+    btn.addEventListener("click", function() {
+        this.classList.toggle("active");
+        const content = this.nextElementSibling;
+        content.style.display = content.style.display === "block" ? "none" : "block";
+    });
+});
+</script>
+
+</body>
+</html>

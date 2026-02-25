@@ -10,29 +10,30 @@
 
 <h2>Contacto</h2>
 
-<form name="contacto" method="POST" data-netlify="true">
-<input type="hidden" name="form-name" value="contacto">
+<form name="contacto" method="POST" netlify netlify-honeypot="bot-field" action="/gracias.html">
+  <input type="hidden" name="form-name" value="contacto">
+  <p style="display:none">
+    <label>No llenar: <input name="bot-field"></label>
+  </p>
 
-<label>Nombre</label><br>
-<input type="text" name="nombre"><br><br>
+  <label>Nombre</label><br>
+  <input type="text" name="nombre" required><br><br>
 
-<label>Email</label><br>
-<input type="email" name="email"><br><br>
+  <label>Email</label><br>
+  <input type="email" name="email" required><br><br>
 
-<label>Área de interés</label><br>
-<select name="area">
-<option>Geoespacial</option>
-<option>Aeronáutica</option>
-<option>Ciencia de Datos</option>
-<option>Innovación y Gestión</option>
-</select><br><br>
+  <label>Área de interés</label><br>
+  <select name="area" required>
+    <option>Geoespacial</option>
+    <option>Aeronáutica</option>
+    <option>Ciencia de Datos</option>
+    <option>Innovación y Gestión</option>
+  </select><br><br>
 
-<label>Mensaje</label><br>
-<textarea name="mensaje"></textarea><br><br>
+  <label>Mensaje</label><br>
+  <textarea name="mensaje" required></textarea><br><br>
 
-<button type="submit">Enviar</button>
-
+  <button type="submit">Enviar</button>
 </form>
-
 </body>
 </html>

@@ -38,10 +38,37 @@ body {
     font-weight: 500;
 }
 
+
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+}
+
 .logo img {
-    height: 70px;
+    height: 45px;
     width: auto;
-    display: block;
+    filter: brightness(0) invert(1); /* quita si usas logo blanco */
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.brand-name {
+    color: white;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.brand-sub {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.7rem;
+    font-weight: 300;
 }
 
 /* HERO */

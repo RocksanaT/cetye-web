@@ -3,77 +3,149 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cursos - CETyE</title>
+<title>Cursos — CETYE</title>
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<header>
+<!-- NAVBAR -->
+<header class="navbar">
     <div class="container">
-        <h1 class="logo">CETyE</h1>
+        <div class="logo">
+            <a href="index.html">
+                <img src="assets/logo.png" alt="Logo CETYE">
+                <div class="logo-text">
+                    <span class="brand-name">CETYE</span>
+                    <span class="brand-sub">Centro de Estudios de la Tierra y el Espacio</span>
+                </div>
+            </a>
+        </div>
         <nav>
             <a href="index.html">Inicio</a>
-            <a href="cursos.html">Cursos</a>
-            <a href="index.html#contacto">Contacto</a>
+            <a href="cursos.html" class="active">Cursos</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
         </nav>
     </div>
 </header>
 
+<!-- HERO INTERIOR -->
 <section class="hero-small">
-    <h2>Nuestros Programas de Capacitación</h2>
+    <div class="container">
+        <p class="page-tag">Programas</p>
+        <h2>Nuestros Cursos de Capacitación</h2>
+        <p>Formación técnica especializada, orientada a la práctica y al impacto profesional.</p>
+    </div>
 </section>
 
-<section class="section">
+<!-- CURSOS ACCORDION -->
+<section class="section section-dark">
+    <div class="container">
+        <div class="accordion">
 
-<div class="accordion">
+            <div class="accordion-item">
+                <button class="accordion-btn">
+                    <span class="acc-left">
+                        <span class="acc-icon">🌍</span>
+                        Datos Geoespaciales
+                    </span>
+                    <span class="acc-arrow">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <ul>
+                        <li>Procesamiento Básico de Imágenes Satelitales Open Source</li>
+                        <li>Procesamiento de imágenes Radar SAR</li>
+                        <li>Aplicaciones Geomáticas para la Gestión Territorial</li>
+                        <li>Introducción a los Sistemas de Información Geográfica</li>
+                    </ul>
+                </div>
+            </div>
 
-    <button class="accordion-btn">🌍 Geoespacial</button>
-    <div class="accordion-content">
-        <ul>
-            <li>Procesamiento de Imágenes Sentinel-2</li>
-            <li>Radar SAR Aplicado</li>
-            <li>Análisis de Series Temporales</li>
-        </ul>
+            <div class="accordion-item">
+                <button class="accordion-btn">
+                    <span class="acc-left">
+                        <span class="acc-icon">🚀</span>
+                        Aeronáutica y Ciencias Espaciales
+                    </span>
+                    <span class="acc-arrow">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <ul>
+                        <li>Fundamentos de Sistemas Satelitales</li>
+                        <li>Plataformas Aereas</li>
+                        <li>Capacitación Pedagógica Aeronáutica</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-btn">
+                    <span class="acc-left">
+                        <span class="acc-icon">📊</span>
+                        Ciencia de Datos
+                    </span>
+                    <span class="acc-arrow">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <ul>
+                        <li>Machine Learning Geoespacial con Python</li>
+                        <li>Ciencia de Datos para Gestión</li>
+                        <li>Visualización de Datos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <button class="accordion-btn">
+                    <span class="acc-left">
+                        <span class="acc-icon">💡</span>
+                        Innovación y Gestión
+                    </span>
+                    <span class="acc-arrow">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <ul>
+                        <li>Formulación de Proyectos de I+D</li>
+                        <li>Gestión Tecnológica y Transferencia del Conocimiento</li>
+                        <li>Innovación y Emprendimiento Tecnológico – Nivel Básico</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
     </div>
-
-    <button class="accordion-btn">🚀 Aeronáutica y Espacial</button>
-    <div class="accordion-content">
-        <ul>
-            <li>Fundamentos de Sistemas Satelitales</li>
-            <li>Observación de la Tierra</li>
-        </ul>
-    </div>
-
-    <button class="accordion-btn">📊 Ciencia de Datos</button>
-    <div class="accordion-content">
-        <ul>
-            <li>Machine Learning Geoespacial</li>
-            <li>Arquitecturas de Data Cubes</li>
-        </ul>
-    </div>
-
-    <button class="accordion-btn">💡 Innovación y Gestión</button>
-    <div class="accordion-content">
-        <ul>
-            <li>Formulación de Proyectos I+D</li>
-            <li>Gestión Tecnológica y Transferencia</li>
-        </ul>
-    </div>
-
-</div>
-
 </section>
+
+<!-- CTA -->
+<section class="cta">
+    <div class="container">
+        <h2>¿Te interesa algún programa?</h2>
+        <a href="contacto.html" class="btn-secondary">Escríbenos</a>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 CETYE — Centro de Estudios de la Tierra y el Espacio</p>
+</footer>
 
 <script>
-const acc = document.querySelectorAll(".accordion-btn");
+document.querySelectorAll(".accordion-btn").forEach(btn => {
+    btn.addEventListener("click", function () {
+        const isOpen = this.classList.contains("active");
 
-acc.forEach(btn => {
-    btn.addEventListener("click", function() {
-        this.classList.toggle("active");
-        const content = this.nextElementSibling;
-        content.style.display = content.style.display === "block" ? "none" : "block";
+        // cerrar todos
+        document.querySelectorAll(".accordion-btn").forEach(b => {
+            b.classList.remove("active");
+            b.nextElementSibling.style.display = "none";
+        });
+
+        // abrir el clickeado si estaba cerrado
+        if (!isOpen) {
+            this.classList.add("active");
+            this.nextElementSibling.style.display = "block";
+        }
     });
 });
 </script>

@@ -3,17 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CETYE | Capacitaciones Tecnológicas</title>
+<title>CETYE | Capacitaciones Tecnol贸gicas</title>
 <link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
+<!-- NAVBAR -->
 <header class="navbar">
     <div class="container">
         <div class="logo">
-            <a href="/">
+            <a href="index.html">
                 <img src="assets/logo.png" alt="Logo CETYE">
                 <div class="logo-text">
                     <span class="brand-name">CETYE</span>
@@ -22,81 +23,115 @@
             </a>
         </div>
         <nav>
-            <a href="/">Inicio</a>
-            <a href="/cursos.html">Cursos</a>
-            <a href="/nosotros.html">Nosotros</a>
-            <a href="/contacto.html">Contacto</a>
+            <a href="index.html" class="active">Inicio</a>
+            <a href="cursos.html">Cursos</a>
+            <a href="nosotros.html">Nosotros</a>
+            <a href="contacto.html">Contacto</a>
         </nav>
     </div>
 </header>
 
+<!-- HERO -->
 <section class="hero">
-    <div class="stars"></div>
-    <div class="hero-overlay"></div>
-
     <div class="hero-content">
+        <span class="hero-eyebrow">馃實 Ciencia 路 Tecnolog铆a 路 Innovaci贸n</span>
         <h1 class="hero-title">
-            Formación Avanzada<br>
+            Formaci贸n Avanzada<br>
             <span class="highlight">para un Mundo en Movimiento</span>
         </h1>
-
         <p class="hero-subtitle">
-            Ciencias de la Tierra y el Espacio · Innovación · Ciencia de Datos · Tecnología
+            Ciencias de la Tierra y el Espacio 路 Datos Geoespaciales 路 Ciencia de Datos 路 Aeron谩utica
         </p>
-
-        <a href="/cursos.html" class="btn-primary">Explorar Cursos</a>
+        <div class="hero-actions">
+            <a href="cursos.html" class="btn-primary">Explorar Cursos</a>
+            <a href="nosotros.html" class="btn-ghost">Conoce el equipo</a>
+        </div>
     </div>
-
-    <div class="orbit-line"></div>
 </section>
 
+<!-- STATS -->
+<div class="stats-bar">
+    <div class="container">
+        <div class="stat">
+            <span class="stat-number">4+</span>
+            <span class="stat-label">脕reas de Capacitaci贸n</span>
+        </div>
+        <div class="stat">
+            <span class="stat-number">12+</span>
+            <span class="stat-label">Cursos Disponibles</span>
+        </div>
+        <div class="stat">
+            <span class="stat-number">100%</span>
+            <span class="stat-label">Formaci贸n Aplicada</span>
+        </div>
+        <div class="stat">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Especialistas</span>
+        </div>
+    </div>
+</div>
+
+<!-- ABOUT -->
 <section class="about">
     <div class="container">
         <h2>Centro de Estudios de la Tierra y el Espacio</h2>
         <p>
-        CETYE ofrece capacitaciones especializadas en tecnologías geoespaciales,
-        sistemas satelitales, ciencia de datos, innovación y gestión de proyectos
-        científicos y tecnológicos.
+            En CETYE formamos profesionales capaces de comprender, analizar y transformar el territorio y el espacio mediante tecnolog铆as avanzadas.
+            Integramos innovaci贸n y gesti贸n estrat茅gica para convertir el conocimiento en impacto real.
         </p>
     </div>
 </section>
 
+<!-- 脕REAS -->
 <section class="areas">
     <div class="container">
-        <h2>Nuestras Áreas</h2>
+        <h2>Nuestras 脕reas de Capacitaci贸n</h2>
         <div class="cards">
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee" alt="Geoespacial">
-                <h3>Geoespacial</h3>
-                <p>Procesamiento de imágenes satelitales y análisis territorial.</p>
+                <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&w=600" alt="Datos Geoespaciales">
+                <h3>Datos Geoespaciales</h3>
+                <p>Procesamiento de im谩genes satelitales y an谩lisis territorial avanzado.</p>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa" alt="Espacial">
-                <h3>Aeronáutica y Espacial</h3>
-                <p>Tecnologías espaciales y observación terrestre.</p>
+                <img src="https://images.pexels.com/photos/18241391/pexels-photo-18241391.jpeg?auto=compress&w=600" alt="Aeron谩utica">
+                <h3>Aeron谩utica</h3>
+                <p>Aeron谩utica, aviaci贸n y sistemas de navegaci贸n.</p>
             </div>
 
             <div class="card">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71" alt="Data Science">
+                <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&w=600" alt="Ciencias Espaciales">
+                <h3>Ciencias Espaciales</h3>
+                <p>Tecnolog铆as espaciales y observaci贸n terrestre.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&w=600" alt="Ciencia de Datos">
                 <h3>Ciencia de Datos</h3>
-                <p>Machine learning y análisis multitemporal.</p>
+                <p>Machine learning aplicado y an谩lisis multitemporal de datos.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&w=600" alt="Innovaci贸n">
+                <h3>Innovaci贸n Aplicada</h3>
+                <p>Gesti贸n tecnol贸gica y formulaci贸n de proyectos de innovaci贸n.</p>
             </div>
 
         </div>
     </div>
 </section>
 
+<!-- CTA -->
 <section class="cta">
     <div class="container">
         <h2>Impulsa tu desarrollo profesional</h2>
-        <a href="/contacto.html" class="btn-secondary">Contáctanos</a>
+        <a href="contacto.html" class="btn-secondary">Cont谩ctanos</a>
     </div>
 </section>
 
 <footer>
-    <p>© 2026 CETYE - Centro de Estudios de la Tierra y el Espacio</p>
+    <p>漏 2026 CETYE 鈥?Centro de Estudios de la Tierra y el Espacio</p>
 </footer>
 
 </body>

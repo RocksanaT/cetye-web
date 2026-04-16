@@ -6,6 +6,177 @@
 <title>Cursos — CETYE</title>
 <link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===== GRID ===== */
+.courses-grid{
+    display:grid;
+    grid-template-columns:repeat(2, minmax(0, 1fr));
+    gap:18px;
+    margin-top:6px;
+}
+
+/* ===== CARD ===== */
+.course-card{
+    background:#f3f7fb;
+    border-radius:16px;
+    overflow:hidden;
+    border:1px solid rgba(22, 48, 86, 0.10);
+    box-shadow:0 10px 26px rgba(13, 29, 54, 0.08);
+    transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.course-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 16px 30px rgba(13, 29, 54, 0.12);
+    border-color:rgba(31, 78, 140, 0.18);
+}
+
+/* ===== HEADER ===== */
+.course-card-header{
+    position:relative;
+    padding:18px 16px 12px;
+    color:#ffffff;
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0)),
+        linear-gradient(135deg, #1a355d 0%, #244979 55%, #2f5d96 100%);
+}
+
+.course-card-header::after{
+    content:"";
+    position:absolute;
+    width:70px;
+    height:70px;
+    border-radius:50%;
+    top:-18px;
+    right:-14px;
+    background:rgba(255,255,255,0.06);
+    filter:blur(1px);
+}
+
+/* BADGE */
+.course-badge{
+    position:absolute;
+    top:10px;
+    right:12px;
+    font-size:0.60rem;
+    font-weight:700;
+    letter-spacing:1.2px;
+    padding:5px 9px;
+    border-radius:999px;
+    color:rgba(255,255,255,0.92);
+    background:rgba(255,255,255,0.08);
+    border:1px solid rgba(255,255,255,0.14);
+    backdrop-filter:blur(4px);
+}
+
+/* ICON */
+.course-icon{
+    font-size:18px;
+    margin-bottom:6px;
+    opacity:0.92;
+}
+
+/* TITLE */
+.course-card-header h3{
+    margin:0 0 4px;
+    font-size:1.12rem;
+    line-height:1.12;
+    font-weight:700;
+    max-width:86%;
+    letter-spacing:0.1px;
+}
+
+/* DESCRIPTION */
+.course-card-header p{
+    margin:0;
+    font-size:0.78rem;
+    line-height:1.35;
+    color:rgba(255,255,255,0.80);
+    max-width:90%;
+    font-weight:400;
+}
+
+/* ===== BODY ===== */
+.course-card-body{
+    background:#f3f7fb;
+}
+
+.course-card-body ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+}
+
+.course-card-body li{
+    position:relative;
+    padding:11px 14px 11px 30px;
+    border-top:1px solid rgba(22, 48, 86, 0.06);
+    font-size:0.79rem;
+    color:#2b3f58;
+    line-height:1.35;
+    background:#eef4fa;
+}
+
+.course-card-body li:nth-child(even){
+    background:#f5f8fc;
+}
+
+/* bullet */
+.course-card-body li::before{
+    content:"";
+    position:absolute;
+    left:14px;
+    top:16px;
+    width:5px;
+    height:5px;
+    border-radius:50%;
+    background:#567da8;
+    box-shadow:0 0 0 3px rgba(86,125,168,0.10);
+}
+
+/* Variantes muy sobrias, siempre en gama azul */
+.course-card.geo .course-card-header{
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0)),
+        linear-gradient(135deg, #18365f 0%, #214a7d 55%, #2c629d 100%);
+}
+
+.course-card.aero .course-card-header{
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0)),
+        linear-gradient(135deg, #1b3253 0%, #28476f 55%, #355c8b 100%);
+}
+
+.course-card.data .course-card-header{
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0)),
+        linear-gradient(135deg, #183a56 0%, #23506d 55%, #2f6983 100%);
+}
+
+.course-card.innov .course-card-header{
+    background:
+        linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0)),
+        linear-gradient(135deg, #233a5a 0%, #315175 55%, #40688f 100%);
+}
+
+/* pequeños matices en bullets */
+.course-card.geo .course-card-body li::before{ background:#4f7fb6; box-shadow:0 0 0 3px rgba(79,127,182,0.10); }
+.course-card.aero .course-card-body li::before{ background:#5d7fa7; box-shadow:0 0 0 3px rgba(93,127,167,0.10); }
+.course-card.data .course-card-body li::before{ background:#4a8aa1; box-shadow:0 0 0 3px rgba(74,138,161,0.10); }
+.course-card.innov .course-card-body li::before{ background:#6c88ad; box-shadow:0 0 0 3px rgba(108,136,173,0.10); }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px){
+    .courses-grid{
+        grid-template-columns:1fr;
+        justify-content:stretch;
+        gap:18px;
+    }
+}
+
+</style>
 </head>
 
 <body>
@@ -31,7 +202,7 @@
     </div>
 </header>
 
-<!-- HERO INTERIOR -->
+<!-- HERO -->
 <section class="hero-small">
     <div class="container">
         <p class="page-tag">Programas</p>
@@ -40,79 +211,75 @@
     </div>
 </section>
 
-<!-- CURSOS ACCORDION -->
+<!-- CURSOS -->
 <section class="section section-dark">
     <div class="container">
-        <div class="accordion">
+        <div class="courses-grid">
 
-            <div class="accordion-item">
-                <button class="accordion-btn">
-                    <span class="acc-left">
-                        <span class="acc-icon">🌍</span>
-                        Datos Geoespaciales
-                    </span>
-                    <span class="acc-arrow">▼</span>
-                </button>
-                <div class="accordion-content">
+            <article class="course-card geo">
+                <div class="course-card-header">
+                    <span class="course-badge">4 Cursos</span>
+                    <span class="course-icon">🌍</span>
+                    <h3>Datos Geoespaciales</h3>
+                    <p>Análisis satelital y gestión territorial.</p>
+                </div>
+                <div class="course-card-body">
                     <ul>
-                        <li>Procesamiento Básico de Imágenes Satelitales Open Source</li>
-                        <li>Procesamiento de imágenes Radar SAR</li>
-                        <li>Aplicaciones Geomáticas para la Gestión Territorial</li>
-                        <li>Introducción a los Sistemas de Información Geográfica</li>
+                        <li>Procesamiento de Imágenes Satelitales</li>
+                        <li>Procesamiento Radar SAR</li>
+                        <li>Aplicaciones Geomáticas</li>
+                        <li>Introducción a SIG</li>
                     </ul>
                 </div>
-            </div>
+            </article>
 
-            <div class="accordion-item">
-                <button class="accordion-btn">
-                    <span class="acc-left">
-                        <span class="acc-icon">🚀</span>
-                        Aeronáutica y Ciencias Espaciales
-                    </span>
-                    <span class="acc-arrow">▼</span>
-                </button>
-                <div class="accordion-content">
+            <article class="course-card aero">
+                <div class="course-card-header">
+                    <span class="course-badge">3 Cursos</span>
+                    <span class="course-icon">🚀</span>
+                    <h3>Aeronáutica y Ciencias Espaciales</h3>
+                    <p>Sistemas satelitales y plataformas aéreas.</p>
+                </div>
+                <div class="course-card-body">
                     <ul>
-                        <li>Fundamentos de Sistemas Satelitales</li>
-                        <li>Plataformas Aereas</li>
-                        <li>Capacitación Pedagógica Aeronáutica</li>
+                        <li>Fundamentos Satelitales</li>
+                        <li>Plataformas Aéreas</li>
+                        <li>Capacitación Aeronáutica</li>
                     </ul>
                 </div>
-            </div>
+            </article>
 
-            <div class="accordion-item">
-                <button class="accordion-btn">
-                    <span class="acc-left">
-                        <span class="acc-icon">📊</span>
-                        Ciencia de Datos
-                    </span>
-                    <span class="acc-arrow">▼</span>
-                </button>
-                <div class="accordion-content">
+            <article class="course-card data">
+                <div class="course-card-header">
+                    <span class="course-badge">3 Cursos</span>
+                    <span class="course-icon">📊</span>
+                    <h3>Ciencia de Datos</h3>
+                    <p>Machine learning y análisis de datos.</p>
+                </div>
+                <div class="course-card-body">
                     <ul>
-                        <li>Machine Learning Geoespacial con Python</li>
+                        <li>ML Geoespacial con Python</li>
                         <li>Ciencia de Datos para Gestión</li>
                         <li>Visualización de Datos</li>
                     </ul>
                 </div>
-            </div>
+            </article>
 
-            <div class="accordion-item">
-                <button class="accordion-btn">
-                    <span class="acc-left">
-                        <span class="acc-icon">💡</span>
-                        Innovación y Gestión
-                    </span>
-                    <span class="acc-arrow">▼</span>
-                </button>
-                <div class="accordion-content">
+            <article class="course-card innov">
+                <div class="course-card-header">
+                    <span class="course-badge">3 Cursos</span>
+                    <span class="course-icon">💡</span>
+                    <h3>Innovación y Gestión</h3>
+                    <p>Proyectos y transferencia tecnológica.</p>
+                </div>
+                <div class="course-card-body">
                     <ul>
-                        <li>Formulación de Proyectos de I+D</li>
-                        <li>Gestión Tecnológica y Transferencia del Conocimiento</li>
-                        <li>Innovación y Emprendimiento Tecnológico – Nivel Básico</li>
+                        <li>Formulación de Proyectos I+D</li>
+                        <li>Gestión Tecnológica</li>
+                        <li>Innovación y Emprendimiento</li>
                     </ul>
                 </div>
-            </div>
+            </article>
 
         </div>
     </div>
@@ -129,26 +296,6 @@
 <footer>
     <p>© 2026 CETYE — Centro de Estudios de la Tierra y el Espacio</p>
 </footer>
-
-<script>
-document.querySelectorAll(".accordion-btn").forEach(btn => {
-    btn.addEventListener("click", function () {
-        const isOpen = this.classList.contains("active");
-
-        // cerrar todos
-        document.querySelectorAll(".accordion-btn").forEach(b => {
-            b.classList.remove("active");
-            b.nextElementSibling.style.display = "none";
-        });
-
-        // abrir el clickeado si estaba cerrado
-        if (!isOpen) {
-            this.classList.add("active");
-            this.nextElementSibling.style.display = "block";
-        }
-    });
-});
-</script>
 
 </body>
 </html>

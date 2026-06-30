@@ -26,6 +26,7 @@
             <a href="index.html">Inicio</a>
             <a href="cursos.html">Cursos</a>
             <a href="nosotros.html">Nosotros</a>
+            <a href="modalidades.html">Modalidades</a>
             <a href="contacto.html" class="active">Contacto</a>
         </nav>
     </div>
@@ -53,7 +54,7 @@
                 </p>
                 <div class="contact-detail">
                     <span class="cd-icon">✉️</span>
-                    contacto.cetye@gmail.cl
+                    contacto.cetye@gmail.com
                 </div>
                 <div class="contact-detail">
                     <span class="cd-icon">📍</span>
@@ -62,8 +63,12 @@
             </div>
 
             <div class="contact-form">
+                <!-- Aviso opcional que aparece solo si el visitante llega desde Modalidades -->
+                <p id="origen-modalidad" style="display:none;margin-bottom:18px;padding:12px 16px;border-radius:12px;background:rgba(90,160,255,.12);border:1px solid rgba(90,160,255,.35);font-size:.9rem"></p>
+
                 <form name="contacto" method="POST" netlify netlify-honeypot="bot-field" action="gracias.html">
                     <input type="hidden" name="form-name" value="contacto">
+                    <input type="hidden" name="modalidad" id="modalidad">
                     <p style="display:none"><label>No llenar: <input name="bot-field"></label></p>
 
                     <div class="form-row">
@@ -104,6 +109,63 @@
 <footer>
     <p>© 2026 CETYE — Centro de Estudios de la Tierra y el Espacio</p>
 </footer>
+
+<script>
+  // Si el visitante llega desde la página de Modalidades (?modalidad=...),
+  // registramos la modalidad y precargamos un mensaje con contexto.
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    var mod = params.get('modalidad');
+    var area = params.get('area'); // opcional, por si algun dia enlazamos un curso puntual
+
+    var info = {
+      individual: {
+        etiqueta: 'Curso Individual (asincrónico)',
+        mensaje: 'Hola, me interesa tomar un Curso Individual (modalidad asincrónica). Quisiera más información para inscribirme.'
+      },
+      sincronico: {
+        etiqueta: 'Curso Sincrónico (en vivo)',
+        mensaje: 'Hola, me interesa la modalidad Sincrónica (clases en vivo). ¿Podrían enviarme información y valores?'
+      },
+      grupos: {
+        etiqueta: 'Grupos y Empresas',
+        mensaje: 'Hola, quisiera una propuesta para capacitar a un grupo/empresa. Curso de interés y número aproximado de participantes: '
+      },
+      presencial: {
+        etiqueta: 'Curso Presencial',
+        mensaje: 'Hola, me interesa la modalidad Presencial. Quisiera coordinar lugar, fechas y grupo.'
+      },
+      sence: {
+        etiqueta: 'Cursos SENCE (franquicia tributaria)',
+        mensaje: 'Hola, quisiera información sobre los cursos con código SENCE (franquicia tributaria) para mi empresa.'
+      }
+    };
+
+    var hidden = document.getElementById('modalidad');
+    var aviso = document.getElementById('origen-modalidad');
+    var mensaje = document.getElementById('mensaje');
+    var selArea = document.getElementById('area');
+
+    if (mod && info[mod]) {
+      if (hidden) hidden.value = info[mod].etiqueta;
+      if (aviso) {
+        aviso.textContent = 'Consulta sobre: ' + info[mod].etiqueta;
+        aviso.style.display = 'block';
+      }
+      if (mensaje && !mensaje.value) mensaje.value = info[mod].mensaje;
+    }
+
+    // Preselecciona el area si viene en la URL y coincide con una opcion
+    if (area && selArea) {
+      for (var i = 0; i < selArea.options.length; i++) {
+        if (selArea.options[i].text.toLowerCase() === area.toLowerCase()) {
+          selArea.selectedIndex = i;
+          break;
+        }
+      }
+    }
+  })();
+</script>
 
 </body>
 </html>

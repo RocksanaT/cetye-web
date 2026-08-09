@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Inscripciones Abiertas | CETYE</title>
+<meta name="description" content="Cursos CETYE con fecha de inicio confirmada e inscripciones abiertas. Cupos limitados.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Paleta oscura del sitio (navbar, hero, cta, footer) */
+    --bg:#070b18;--bg-soft:#0c1224;
+    --surface:rgba(255,255,255,.035);--surface-2:rgba(255,255,255,.06);
+    --border:rgba(255,255,255,.09);
+    --text:#e9eefb;--muted:#97a3c2;
+    --accent:#5aa0ff;--accent-2:#7cdce0;--gold:#f5c451;
+    --live:#4ade80;
+
+    /* Paleta clara (misma que las tarjetas de cursos.html) */
+    --lt-bg:#f3f7fd;        /* fondo claro de sección */
+    --lt-card:#ffffff;      /* tarjetas */
+    --lt-soft:#f6f9ff;      /* bloques suaves */
+    --lt-line:#e2e9f5;      /* bordes */
+    --lt-ink:#0f1830;       /* títulos */
+    --lt-body:#48526b;      /* texto */
+    --lt-mut:#6f7890;       /* secundario */
+    --lt-blue:#2f6fe0;      /* azul acento */
+    --lt-blue-bg:#eaf2ff;
+    --lt-blue-line:#d7e6ff;
+    --lt-amber:#a5761c;     /* dorado legible en claro */
+    --lt-amber-bg:#fdf3dc;
+    --lt-amber-line:#f2ddaa;
+    --lt-green:#1f8a4d;
+    --lt-green-bg:#e6f7ee;
+    --lt-green-line:#c3ecd6;
+
+    --radius:18px;--container:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .container{max-width:var(--container);margin:0 auto;padding:0 24px}
+
+  /* ===== NAVBAR (idéntico al resto del sitio) ===== */
+  .navbar{position:sticky;top:0;z-index:50;background:rgba(7,11,24,.78);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
+  .navbar .container{display:flex;align-items:center;justify-content:space-between;height:68px;padding:0 24px}
+  .logo a{display:flex;align-items:center;gap:12px}
+  .logo img{height:38px;width:auto}
+  .logo-text{display:flex;flex-direction:column;line-height:1.1}
+  .brand-name{font-weight:800;font-size:1.15rem;letter-spacing:.04em}
+  .brand-sub{font-size:.66rem;color:var(--muted);letter-spacing:.03em}
+  nav{display:flex;gap:24px;align-items:center}
+  nav a{font-size:.92rem;color:var(--muted);font-weight:500;transition:color .2s;position:relative;white-space:nowrap}
+  nav a:hover,nav a.active{color:var(--text)}
+  nav a.active::after{content:"";position:absolute;left:0;right:0;bottom:-22px;height:2px;background:var(--accent)}
+  nav a.nav-live{color:var(--text)}
+  nav a.nav-live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--live);margin-right:7px;vertical-align:middle;animation:pulse 2s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.55)}70%{box-shadow:0 0 0 7px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
+
+  /* ===== HERO (oscuro, para enlazar con el resto) ===== */
+  .page-hero{position:relative;overflow:hidden;padding:72px 0 52px;
+    background:radial-gradient(1200px 480px at 70% -10%, rgba(90,160,255,.18), transparent 60%),
+      radial-gradient(900px 400px at 10% 0%, rgba(124,220,224,.12), transparent 55%),
+      linear-gradient(180deg,#0a1228,var(--bg))}
+  .stars{position:absolute;inset:0;background-image:
+      radial-gradient(1.5px 1.5px at 20% 30%,#fff,transparent),
+      radial-gradient(1px 1px at 60% 20%,#cdd9ff,transparent),
+      radial-gradient(1.5px 1.5px at 80% 50%,#fff,transparent),
+      radial-gradient(1px 1px at 35% 70%,#b9c6ff,transparent),
+      radial-gradient(1px 1px at 90% 80%,#fff,transparent),
+      radial-gradient(1.5px 1.5px at 50% 90%,#e9eefb,transparent);opacity:.5}
+  .page-hero .container{position:relative}
+  .live-tag{display:inline-flex;align-items:center;gap:9px;padding:7px 15px 7px 12px;border-radius:999px;
+    background:rgba(74,222,128,.10);border:1px solid rgba(74,222,128,.38);
+    font-size:.74rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#9ff0bd;margin-bottom:16px}
+  .live-dot{width:8px;height:8px;border-radius:50%;background:var(--live);animation:pulse 2s infinite}
+  .page-hero h1{font-size:clamp(2rem,5vw,3.1rem);font-weight:800;line-height:1.1;max-width:18ch}
+  .page-hero h1 .hl{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
+  .page-hero p.sub{color:var(--muted);max-width:62ch;margin-top:16px;font-size:1.05rem}
+
+  .countdown{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:28px}
+  .countdown .cd-label{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .cd-boxes{display:flex;gap:10px}
+  .cd-box{min-width:66px;text-align:center;border:1px solid var(--border);border-radius:14px;background:var(--surface);padding:10px 8px}
+  .cd-num{font-size:1.5rem;font-weight:800;line-height:1;color:var(--gold);font-variant-numeric:tabular-nums}
+  .cd-unit{font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-top:5px}
+  .cd-closed{font-size:.9rem;color:var(--muted);border:1px solid var(--border);background:var(--surface);padding:10px 16px;border-radius:999px;max-width:60ch}
+
+  /* ===== ZONA CLARA ===== */
+  .light{background:var(--lt-bg);color:var(--lt-body);padding:60px 0 70px;
+    border-top:1px solid rgba(255,255,255,.06)}
+  .light h2,.light h3,.light h4{color:var(--lt-ink)}
+  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:26px;padding-bottom:14px;border-bottom:1px solid var(--lt-line)}
+  .sec-head h2{font-size:1.45rem;font-weight:700}
+  .sec-head .count{margin-left:auto;font-size:.78rem;color:var(--lt-blue);border:1px solid var(--lt-blue-line);
+    padding:5px 12px;border-radius:999px;background:var(--lt-blue-bg);white-space:nowrap;font-weight:600}
+  .lead{max-width:780px}
+  .lead h2{font-size:1.7rem;font-weight:700;margin-bottom:10px}
+  .lead p{color:var(--lt-mut)}
+
+  /* ===== TARJETA DEL CURSO ===== */
+  .open-card{background:var(--lt-card);border:1px solid var(--lt-line);border-radius:var(--radius);overflow:hidden;
+    box-shadow:0 14px 40px rgba(9,17,40,.18)}
+  .oc-top{display:grid;grid-template-columns:1.4fr .85fr}
+  .oc-body{padding:34px}
+  .oc-flags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+  .flag{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px;border:1px solid}
+  .flag-gold{background:var(--lt-amber-bg);border-color:var(--lt-amber-line);color:var(--lt-amber)}
+  .flag-live{background:var(--lt-green-bg);border-color:var(--lt-green-line);color:var(--lt-green)}
+  .flag-soft{background:#f1f4fa;border-color:#e4e9f2;color:#586079}
+  .oc-body h3{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;line-height:1.15;margin-bottom:12px}
+  .oc-claim{color:var(--lt-body);font-size:.98rem;max-width:58ch}
+  .oc-claim strong{color:var(--lt-ink);font-weight:600}
+  .oc-quest{margin-top:14px;padding:14px 18px;border-left:3px solid var(--lt-blue);background:var(--lt-soft);
+    border-radius:0 12px 12px 0;font-size:.92rem;color:var(--lt-body)}
+
+  /* Panel de inscripción (reemplaza al afiche) */
+  .oc-panel{background:linear-gradient(180deg,#0f1830,#152341);color:#e9eefb;padding:32px 30px;
+    display:flex;flex-direction:column;justify-content:center;gap:6px}
+  .oc-panel .p-k{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#9fb3d9;font-weight:700}
+  .oc-panel .p-price{font-size:2.6rem;font-weight:800;color:var(--gold);line-height:1.05;margin:6px 0 2px}
+  .oc-panel .p-note{font-size:.82rem;color:#a9b8d6}
+  .oc-panel .p-div{height:1px;background:rgba(255,255,255,.14);margin:20px 0}
+  .p-list{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:.88rem;color:#cfd9ee}
+  .p-list li{display:flex;gap:10px;align-items:flex-start}
+  .p-list li b{color:#fff;font-weight:600}
+  .p-list .ic{flex:0 0 auto;opacity:.9}
+  .p-cta{display:block;text-align:center;margin-top:22px;padding:14px 20px;border-radius:999px;font-weight:700;font-size:.94rem;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#06122a;transition:transform .2s,box-shadow .2s}
+  .p-cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(90,160,255,.35)}
+  .p-mail{display:block;text-align:center;margin-top:10px;font-size:.82rem;color:#a9b8d6}
+  .p-mail:hover{color:#fff}
+
+  /* Datos clave */
+  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:1px;background:var(--lt-line);
+    border-top:1px solid var(--lt-line);border-bottom:1px solid var(--lt-line)}
+  .fact{background:var(--lt-soft);padding:18px 22px}
+  .fact .k{font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--lt-mut);font-weight:700;margin-bottom:5px}
+  .fact .v{font-size:.98rem;font-weight:700;color:var(--lt-ink)}
+  .fact .v small{display:block;font-size:.76rem;font-weight:500;color:var(--lt-mut);margin-top:2px}
+
+  .oc-cols{display:grid;grid-template-columns:1.05fr .95fr}
+  .oc-col{padding:30px 34px}
+  .oc-col+.oc-col{border-left:1px solid var(--lt-line);background:var(--lt-soft)}
+  .oc-col h4{font-size:1.02rem;font-weight:700;margin-bottom:16px}
+  .learn{list-style:none;display:flex;flex-direction:column;gap:11px}
+  .learn li{font-size:.91rem;color:var(--lt-body);display:flex;gap:11px;align-items:flex-start}
+  .learn li::before{content:"✓";color:var(--lt-blue);font-weight:800;flex:0 0 auto}
+  .mods{display:flex;flex-direction:column;gap:9px}
+  .mod-row{display:flex;gap:13px;align-items:flex-start;border:1px solid var(--lt-line);border-radius:13px;background:var(--lt-card);padding:13px 15px}
+  .mod-n{flex:0 0 auto;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;
+    font-size:.82rem;font-weight:800;color:var(--lt-blue);background:var(--lt-blue-bg);border:1px solid var(--lt-blue-line)}
+  .mod-t{font-size:.92rem;font-weight:600;line-height:1.35;color:var(--lt-ink)}
+  .mod-d{font-size:.79rem;color:var(--lt-mut);margin-top:3px}
+  .final-row{border-color:var(--lt-amber-line);background:var(--lt-amber-bg)}
+  .final-row .mod-n{color:var(--lt-amber);background:#fff;border-color:var(--lt-amber-line)}
+
+  /* Docente */
+  .teacher{display:flex;gap:20px;align-items:flex-start;padding:30px 34px;border-top:1px solid var(--lt-line);background:var(--lt-card)}
+  .teacher .av{flex:0 0 auto;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;font-size:1.5rem;
+    background:var(--lt-blue-bg);border:1px solid var(--lt-blue-line);overflow:hidden}
+  .teacher .av img{width:100%;height:100%;object-fit:cover}
+  .teacher .rol{font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lt-blue);font-weight:700}
+  .teacher .nom{font-size:1.1rem;font-weight:700;margin:3px 0 8px;color:var(--lt-ink)}
+  .teacher p{font-size:.89rem;color:var(--lt-body);max-width:80ch}
+  .creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+  .cred{font-size:.73rem;color:#586079;background:#f1f4fa;border:1px solid #e4e9f2;padding:4px 11px;border-radius:999px}
+
+  .oc-foot{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;
+    padding:22px 34px;border-top:1px solid var(--lt-line);background:var(--lt-blue-bg)}
+  .oc-foot .note{font-size:.86rem;color:#33507f;max-width:52ch}
+  .oc-foot .note strong{color:var(--lt-ink)}
+  .btn{display:inline-block;text-align:center;padding:12px 24px;border-radius:999px;font-weight:600;font-size:.92rem;
+    transition:transform .2s,box-shadow .2s,border-color .2s,background .2s}
+  .btn-dark{background:var(--lt-ink);color:#fff}
+  .btn-dark:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(15,24,48,.28)}
+  .btn-line{background:#fff;border:1px solid var(--lt-blue-line);color:var(--lt-blue)}
+  .btn-line:hover{border-color:var(--lt-blue)}
+
+  /* Pasos */
+  .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:16px;margin-top:30px}
+  .step{border:1px solid var(--lt-line);border-radius:14px;background:var(--lt-card);padding:22px}
+  .step .n{font-size:.7rem;font-weight:800;letter-spacing:.12em;color:var(--lt-blue);margin-bottom:9px}
+  .step h4{font-size:.98rem;font-weight:600;margin-bottom:5px}
+  .step p{font-size:.85rem;color:var(--lt-mut)}
+
+  /* Próximamente */
+  .soon{border:1px dashed #c9d5e8;border-radius:var(--radius);background:var(--lt-card);
+    padding:30px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap}
+  .soon .ico{font-size:1.7rem}
+  .soon h3{font-size:1.1rem;font-weight:700;margin-bottom:8px}
+  .soon p{color:var(--lt-mut);font-size:.92rem;max-width:70ch}
+  .soon .actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+
+  /* CTA + footer oscuros */
+  .cta{padding:64px 0;text-align:center;background:radial-gradient(700px 300px at 50% 0%, rgba(90,160,255,.14), transparent 70%);border-top:1px solid var(--border)}
+  .cta h2{font-size:1.8rem;font-weight:700;margin-bottom:8px}
+  .cta p{color:var(--muted);margin-bottom:24px}
+  .btn-primary{display:inline-block;padding:14px 30px;border-radius:999px;font-weight:600;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#06122a;transition:transform .2s,box-shadow .2s}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(90,160,255,.3)}
+  footer{padding:34px 0;text-align:center;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border)}
+
+  @media(max-width:900px){
+    .oc-top{grid-template-columns:1fr}
+    .oc-cols{grid-template-columns:1fr}
+    .oc-col+.oc-col{border-left:none;border-top:1px solid var(--lt-line)}
+  }
+  @media(max-width:560px){
+    nav{gap:14px;overflow-x:auto}
+    .brand-sub{display:none}
+    .oc-body,.oc-col,.teacher,.oc-foot,.oc-panel{padding-left:22px;padding-right:22px}
+    .cd-box{min-width:58px}
+    .teacher{flex-direction:column}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===================== NAVBAR ===================== -->
+<header class="navbar">
+  <div class="container">
+    <div class="logo">
+      <a href="index.html">
+        <img src="assets/logo.png" alt="Logo CETYE">
+        <div class="logo-text">
+          <span class="brand-name">CETYE</span>
+          <span class="brand-sub">Centro de Estudios de la Tierra y el Espacio</span>
+        </div>
+      </a>
+    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="inscripciones.html" class="active nav-live">Inscripciones abiertas</a>
+      <a href="cursos.html">Cursos</a>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="modalidades.html">Modalidades</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section class="page-hero">
+  <div class="stars"></div>
+  <div class="container">
+    <span class="live-tag"><span class="live-dot"></span> Inscripciones abiertas</span>
+    <h1>Cursos con <span class="hl">inicio confirmado</span></h1>
+    <p class="sub">
+      Aquí publicamos únicamente los programas con fecha de inicio definida y matrícula abierta.
+      Son cursos de cupo reducido: cuando se completan, el proceso se cierra antes de la fecha límite.
+    </p>
+
+    <!-- Edita data-cierre con la fecha/hora de cierre (formato ISO) -->
+    <div class="countdown" id="countdown" data-cierre="2026-08-15T23:59:59-04:00">
+      <span class="cd-label">Cierre de inscripciones en</span>
+      <div class="cd-boxes">
+        <div class="cd-box"><div class="cd-num" id="cd-d">--</div><div class="cd-unit">Días</div></div>
+        <div class="cd-box"><div class="cd-num" id="cd-h">--</div><div class="cd-unit">Horas</div></div>
+        <div class="cd-box"><div class="cd-num" id="cd-m">--</div><div class="cd-unit">Min</div></div>
+        <div class="cd-box"><div class="cd-num" id="cd-s">--</div><div class="cd-unit">Seg</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ZONA CLARA: CURSO ABIERTO ===================== -->
+<section class="light">
+  <div class="container">
+
+    <div class="sec-head">
+      <h2>Próximo inicio</h2>
+      <span class="count">1 curso disponible</span>
+    </div>
+
+    <!-- ▼▼ DUPLICA ESTE BLOQUE PARA AGREGAR OTRO CURSO ▼▼ -->
+    <article class="open-card" id="calidad-datos-geoespaciales">
+
+      <div class="oc-top">
+        <div class="oc-body">
+          <div class="oc-flags">
+            <span class="flag flag-gold">Cupos limitados · 10 participantes</span>
+            <span class="flag flag-live">Inscripciones abiertas</span>
+            <span class="flag flag-soft">Nivel medio</span>
+          </div>
+          <h3>Calidad de Datos Geoespaciales</h3>
+          <p class="oc-claim">
+            Si no sabemos si nuestros datos están correctos, todo lo que desarrollemos sobre ellos pierde valor.
+            Un curso dirigido a profesionales que <strong>producen, administran o utilizan información geoespacial</strong>
+            y necesitan determinar si sus datos son adecuados para su propósito.
+          </p>
+          <p class="oc-quest">
+            ¿Existen normativas que regulen esto? ¿Qué controles de exactitud y precisión podemos realizar?
+            ¿Cómo detectamos errores topológicos y geométricos? ¿Qué criterios de conformidad usar?
+            ¿Cómo elaborar informes de control de calidad?
+          </p>
+        </div>
+
+        <!-- Panel de inscripción: no requiere subir imágenes -->
+        <aside class="oc-panel">
+          <div class="p-k">Valor por participante</div>
+          <div class="p-price">$190.000</div>
+          <div class="p-note">Pago con Webpay, tarjetas de crédito y débito</div>
+
+          <div class="p-div"></div>
+
+          <ul class="p-list">
+            <li><span class="ic">🎥</span><div>Modalidad <b>online sincrónica</b>, clases en vivo</div></li>
+            <li><span class="ic">🗓️</span><div>Martes y jueves, <b>19:00 – 21:00 h</b></div></li>
+            <li><span class="ic">⏱️</span><div><b>16 horas</b> en 4 semanas</div></li>
+            <li><span class="ic">👥</span><div>Cupo máximo: <b>10 participantes</b></div></li>
+            <li><span class="ic">📝</span><div>Inscripciones del <b>5 al 15 de agosto</b></div></li>
+          </ul>
+
+          <a class="p-cta" href="contacto.html?modalidad=sincronico&amp;area=Datos%20Geoespaciales&amp;curso=Calidad%20de%20Datos%20Geoespaciales">Reservar mi cupo →</a>
+          <a class="p-mail" href="mailto:contacto.cetye@gmail.com?subject=Consulta%20curso%20Calidad%20de%20Datos%20Geoespaciales">o escríbenos a contacto.cetye@gmail.com</a>
+        </aside>
+      </div>
+
+      <div class="facts">
+        <div class="fact"><div class="k">Modalidad</div><div class="v">Online sincrónica<small>Clases en vivo</small></div></div>
+        <div class="fact"><div class="k">Horario</div><div class="v">Martes y jueves<small>19:00 – 21:00 h</small></div></div>
+        <div class="fact"><div class="k">Duración</div><div class="v">16 horas<small>4 semanas</small></div></div>
+        <div class="fact"><div class="k">Inscripciones</div><div class="v">5 al 15 de agosto<small>o hasta completar cupos</small></div></div>
+        <div class="fact"><div class="k">Nivel</div><div class="v">Medio<small>Enfoque práctico</small></div></div>
+      </div>
+
+      <div class="oc-cols">
+        <div class="oc-col">
+          <h4>🎯 Durante el curso aprenderás a</h4>
+          <ul class="learn">
+            <li>Aplicar los principios de las normas ISO 19131, ISO 19157 e ISO 19115-1.</li>
+            <li>Diseñar perfiles y matrices de evaluación de calidad.</li>
+            <li>Evaluar completitud, consistencia lógica, exactitud posicional y temática, y calidad temporal.</li>
+            <li>Detectar errores topológicos, geométricos y de atributos mediante QGIS.</li>
+            <li>Establecer criterios de conformidad y elaborar informes de calidad.</li>
+            <li>Determinar si los datos deben ser aceptados, corregidos o rechazados.</li>
+          </ul>
+        </div>
+
+        <div class="oc-col">
+          <h4>📚 Contenidos del curso</h4>
+          <div class="mods">
+            <div class="mod-row">
+              <span class="mod-n">1</span>
+              <div><div class="mod-t">Fundamentos de la calidad geoespacial</div>
+              <div class="mod-d">Aptitud para el uso · Exactitud, precisión, error e incertidumbre · Normas ISO · Linaje y trazabilidad</div></div>
+            </div>
+            <div class="mod-row">
+              <span class="mod-n">2</span>
+              <div><div class="mod-t">Diseño de una evaluación de calidad</div>
+              <div class="mod-d">Requisitos y especificaciones · Alcance y unidad de calidad · Métodos y datos de referencia · Criterios de conformidad</div></div>
+            </div>
+            <div class="mod-row">
+              <span class="mod-n">3</span>
+              <div><div class="mod-t">Evaluación de los componentes de calidad</div>
+              <div class="mod-d">Completitud y consistencia lógica · Topología, atributos y dominios · Exactitud posicional y temática · Controles prácticos en QGIS</div></div>
+            </div>
+            <div class="mod-row">
+              <span class="mod-n">4</span>
+              <div><div class="mod-t">Conformidad y comunicación de resultados</div>
+              <div class="mod-d">Indicadores y registro de errores · Representación cartográfica · Declaración de conformidad · Informes y metadatos</div></div>
+            </div>
+            <div class="mod-row final-row">
+              <span class="mod-n">★</span>
+              <div><div class="mod-t">Actividad final</div>
+              <div class="mod-d">Caso práctico: perfil de calidad, matriz de evaluación, controles en QGIS, análisis de resultados e informe breve.</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="teacher">
+        <div class="av">
+          <!-- Si quieres su foto: <img src="assets/equipo/joselyn.jpg" alt="Joselyn Robledo"> -->
+          👩‍🏫
+        </div>
+        <div>
+          <div class="rol">Docente del curso</div>
+          <div class="nom">Joselyn Robledo Ceballos</div>
+          <p>
+            Especialista con más de 20 años de experiencia profesional en calidad de datos geoespaciales y 18 años de
+            trayectoria docente. Diseñó el modelo de control de calidad de datos geoespaciales del Servicio
+            Aerofotogramétrico de la Fuerza Aérea de Chile y participó, a través del Instituto Nacional de Normalización,
+            en el estudio de 33 Normas Chilenas asociadas a ISO/TC 211. Ha presentado investigaciones en Japón,
+            Estados Unidos e Italia.
+          </p>
+          <div class="creds">
+            <span class="cred">Experta Universitaria en Evaluación de la Calidad de la Información Geográfica · U. de Jaén, España</span>
+            <span class="cred">Coautora de la Guía de exactitud posicional del IPGH</span>
+            <span class="cred">Directora de Calidad e Innovación CETYE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="oc-foot">
+        <p class="note"><strong>Solo 10 cupos.</strong> Se asignan por orden de confirmación, así que conviene reservar con anticipación.</p>
+        <a class="btn btn-dark" href="contacto.html?modalidad=sincronico&amp;area=Datos%20Geoespaciales&amp;curso=Calidad%20de%20Datos%20Geoespaciales">Quiero inscribirme →</a>
+      </div>
+
+    </article>
+    <!-- ▲▲ FIN DEL BLOQUE DE CURSO ▲▲ -->
+
+    <!-- ===== CÓMO INSCRIBIRSE ===== -->
+    <div class="lead" style="margin-top:64px">
+      <h2>Cómo reservar tu cupo</h2>
+      <p>Un proceso corto: nos escribes, confirmamos disponibilidad y te enviamos el enlace de pago.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step"><div class="n">PASO 01</div><h4>Envía tu solicitud</h4><p>Completa el formulario de contacto indicando el curso que te interesa.</p></div>
+      <div class="step"><div class="n">PASO 02</div><h4>Confirmamos el cupo</h4><p>Revisamos disponibilidad y te respondemos con los detalles del programa.</p></div>
+      <div class="step"><div class="n">PASO 03</div><h4>Realiza el pago</h4><p>Te enviamos el enlace de Webpay para pagar con tarjeta de crédito o débito.</p></div>
+      <div class="step"><div class="n">PASO 04</div><h4>Recibe tus accesos</h4><p>Te llega el enlace de las clases en vivo, el material y el calendario de sesiones.</p></div>
+    </div>
+
+    <!-- ===== PRÓXIMAMENTE ===== -->
+    <div class="sec-head" style="margin-top:64px"><h2>¿Buscas otro curso?</h2></div>
+    <div class="soon">
+      <div class="ico">🗓️</div>
+      <div>
+        <h3>Los demás programas se abren por convocatoria o a solicitud</h3>
+        <p>
+          En nuestro catálogo hay más de 30 cursos en datos geoespaciales, aeronáutica y ciencias espaciales,
+          ciencia de datos e innovación. Si el que te interesa aún no tiene fecha publicada, déjanos tu interés:
+          te avisamos apenas se abra una nueva convocatoria, o coordinamos una versión cerrada para tu equipo o empresa.
+        </p>
+        <div class="actions">
+          <a class="btn btn-line" href="cursos.html">Ver catálogo completo</a>
+          <a class="btn btn-line" href="contacto.html">Avísenme de próximas fechas</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===================== CTA ===================== -->
+<section class="cta">
+  <div class="container">
+    <h2>¿Dudas antes de inscribirte?</h2>
+    <p>Cuéntanos tu perfil y te orientamos sobre si el curso se ajusta a lo que necesitas.</p>
+    <a href="contacto.html" class="btn-primary">Contáctanos</a>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 CETYE · Centro de Estudios de la Tierra y el Espacio</p>
+</footer>
+
+<script>
+  /* Cuenta regresiva hasta el cierre de inscripciones */
+  (function () {
+    var wrap = document.getElementById('countdown');
+    if (!wrap) return;
+    var fin = new Date(wrap.getAttribute('data-cierre')).getTime();
+    if (isNaN(fin)) return;
+
+    var d = document.getElementById('cd-d'),
+        h = document.getElementById('cd-h'),
+        m = document.getElementById('cd-m'),
+        s = document.getElementById('cd-s');
+
+    function dd(n){ return n < 10 ? '0' + n : '' + n; }
+
+    function tick() {
+      var falta = fin - Date.now();
+      if (falta <= 0) {
+        wrap.innerHTML = '<span class="cd-closed">El plazo de inscripción publicado ya finalizó. Escríbenos para consultar por cupos de última hora o por la próxima versión del curso.</span>';
+        clearInterval(timer);
+        return;
+      }
+      var seg = Math.floor(falta / 1000);
+      d.textContent = Math.floor(seg / 86400);
+      h.textContent = dd(Math.floor(seg % 86400 / 3600));
+      m.textContent = dd(Math.floor(seg % 3600 / 60));
+      s.textContent = dd(seg % 60);
+    }
+    tick();
+    var timer = setInterval(tick, 1000);
+  })();
+</script>
+
+</body>
+</html>

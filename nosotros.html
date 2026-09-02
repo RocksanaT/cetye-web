@@ -1,11 +1,74 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Nosotros — CETYE</title>
-<link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Ajuste de la grilla del equipo para dos integrantes -->
+<style>
+    .team-section .team-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        max-width: 940px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .team-section .team-card {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        align-items: stretch;
+        overflow: hidden;
+        width: 100%;
+        max-width: none;
+        text-align: left;
+    }
+
+    .team-section .team-card-photo {
+        width: 100%;
+        height: 100%;
+        min-height: 280px;
+        object-fit: cover;
+        object-position: center top;
+        display: block;
+        border-radius: 0;
+        margin: 0;
+    }
+
+    .team-section .team-card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: .4rem;
+        padding: 2rem 2.2rem;
+    }
+
+    .team-section .team-card-bio {
+        max-width: 62ch;
+    }
+
+    .team-section .section-sub {
+        max-width: 68ch;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    @media (max-width: 820px) {
+        .team-section .team-grid {
+            max-width: 480px;
+        }
+
+        .team-section .team-card {
+            grid-template-columns: 1fr;
+        }
+
+        .team-section .team-card-photo {
+            min-height: 0;
+            height: 300px;
+        }
+
+        .team-section .team-card-body {
+            padding: 1.6rem;
+        }
+    }
+</style>
 </head>
 
 <body>
@@ -100,8 +163,8 @@
     <div class="container">
         <h2>El Equipo CETYE</h2>
         <p class="section-sub">
-            Cuatro reconocidos líderes, con trayectorias y experiencias complementarias, unidos por la convicción de que la ciencia y la tecnología
-            transforman territorios y personas.
+            Un equipo directivo con trayectorias complementarias en ciencia, tecnología e innovación, unido por la convicción de que
+            el conocimiento aplicado transforma territorios y personas.
         </p>
 
         <div class="team-grid">
@@ -113,11 +176,11 @@
                     <div class="team-card-role">Directora Ejecutiva</div>
                     <div class="team-card-name">Dra. Roxana Trujillo</div>
                     <p class="team-card-bio">
-                        Doctora en Informática, experta en Teledetección y análisis de 
+                        Doctora en Informática, experta en Teledetección y análisis de
 						datos geoespaciales, con amplia trayectoria en gestión científica, liderazgo institucional
-						y 15 años de experiencia en docencia universitaria de pregrado y postgrado. Ha dirigido proyectos 
-						de investigación aplicada en ciencias de la Tierra y Tecnología aplicada, articulando vínculos entre la academia, 
-						el sector público y la industria. Su visión estratégica orienta el desarrollo de CETYE hacia la 
+						y 15 años de experiencia en docencia universitaria de pregrado y postgrado. Ha dirigido proyectos
+						de investigación aplicada en ciencias de la Tierra y Tecnología aplicada, articulando vínculos entre la academia,
+						el sector público y la industria. Su visión estratégica orienta el desarrollo de CETYE hacia la
 						formación de excelencia con impacto regional.
                     </p>
                 </div>
@@ -125,48 +188,16 @@
 
             <!-- Joselyn Robledo -->
             <div class="team-card">
-                <img class="team-card-photo" src="assets/equipo/joselyn.jpg" alt="Joselyn Robledo">
+                <img class="team-card-photo" src="assets/equipo/joselyn.jpg" alt="Msc. Joselyn Robledo">
                 <div class="team-card-body">
-                    <div class="team-card-role">Directora de Calidad e Innovación</div>
+                    <div class="team-card-role">Directora Académica</div>
                     <div class="team-card-name">Msc. Joselyn Robledo</div>
                     <p class="team-card-bio">
-						Profesional con experiencia en Innovación, IA y gestión de proyectos tecnológicos, 
-						con trayectoria en iniciativas CORFO y ANID. Especialista en programas de capacitación en 
-						transformación digital, análisis de datos y emprendimiento. Cuenta con experiencia en articulación público-privada, 
-						evaluación de proyectos y transferencia tecnológica, con enfoque en impacto y desarrollo sostenible. Lidera procesos 
-						de evaluación y mejora continua en CETYE.
-                    </p>
-                </div>
-            </div>
-
-            <!-- Rodrigo Suárez -->
-            <div class="team-card">
-                <img class="team-card-photo" src="assets/equipo/rodrigo.jpg" alt="Rodrigo Suárez">
-                <div class="team-card-body">
-                    <div class="team-card-role">Director Académico</div>
-                    <div class="team-card-name">Msc. Rodrigo Suárez</div>
-                    <p class="team-card-bio">
-						Ingeniero Aeronáutico con amplia experiencia en gestión de sistemas tecnológicos complejos y docencia universitaria.
-						Ex Coronel de la Fuerza Aérea de Chile, donde fue distinguido con la Cruz al Mérito Aeronáutico, 
-						y académico de la U. Técnica Federico Santa María, liderando iniciativas en tecnología aeronáutica y
-						espacial. Especialista en gestión de proyectos, innovación tecnológica y formación académica,
-						ha participado en instancias nacionales e internacionales en el ámbito aeronáutico y espacial. 
-
-                    </p>
-                </div>
-            </div>
-
-            <!-- Hernán Tello -->
-            <div class="team-card">
-                <img class="team-card-photo" src="assets/equipo/hernan.jpg" alt="Hernán Tello"> 
-                <div class="team-card-body">
-                    <div class="team-card-role">Director de Desarrollo Estratégico</div>
-                    <div class="team-card-name">Msc. Hernán Tello</div>
-                    <p class="team-card-bio">
-                        Ingeniero Aeronáutico con visión de negocio y experiencia en el ecosistema espacial y aeronáutico
-                        Hernán define la hoja de ruta institucional de CETYE. Desarrolla alianzas
-                        estratégicas con organismos públicos, empresas y centros de investigación,
-                        posicionando a CETYE como referente en capacitación tecnológica especializada.
+						Profesional con experiencia en Innovación, IA y gestión de proyectos tecnológicos,
+						con trayectoria en iniciativas CORFO y ANID. Especialista en programas de capacitación en
+						transformación digital, análisis de datos y emprendimiento. Cuenta con experiencia en articulación público-privada,
+						evaluación de proyectos y transferencia tecnológica, con enfoque en impacto y desarrollo sostenible. Lidera el diseño
+						de los programas formativos de CETYE y sus procesos de evaluación y mejora continua.
                     </p>
                 </div>
             </div>
@@ -189,3 +220,4 @@
 
 </body>
 </html>
+

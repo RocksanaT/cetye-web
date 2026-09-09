@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Inscripciones Abiertas | CETYE</title>
-<meta name="description" content="Cursos CETYE con fecha de inicio confirmada e inscripciones abiertas. Cupos limitados.">
+<meta name="description" content="Cursos CETYE con fecha de inicio confirmada e inscripciones abiertas: Introducción al Dominio Espacial y Fundamentos de Nanosatélites. Cupos limitados.">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
@@ -17,17 +17,17 @@
     --live:#4ade80;
 
     /* Paleta clara (misma que las tarjetas de cursos.html) */
-    --lt-bg:#f3f7fd;        /* fondo claro de sección */
-    --lt-card:#ffffff;      /* tarjetas */
-    --lt-soft:#f6f9ff;      /* bloques suaves */
-    --lt-line:#e2e9f5;      /* bordes */
-    --lt-ink:#0f1830;       /* títulos */
-    --lt-body:#48526b;      /* texto */
-    --lt-mut:#6f7890;       /* secundario */
-    --lt-blue:#2f6fe0;      /* azul acento */
+    --lt-bg:#f3f7fd;
+    --lt-card:#ffffff;
+    --lt-soft:#f6f9ff;
+    --lt-line:#e2e9f5;
+    --lt-ink:#0f1830;
+    --lt-body:#48526b;
+    --lt-mut:#6f7890;
+    --lt-blue:#2f6fe0;
     --lt-blue-bg:#eaf2ff;
     --lt-blue-line:#d7e6ff;
-    --lt-amber:#a5761c;     /* dorado legible en claro */
+    --lt-amber:#a5761c;
     --lt-amber-bg:#fdf3dc;
     --lt-amber-line:#f2ddaa;
     --lt-green:#1f8a4d;
@@ -42,7 +42,7 @@
   a{color:inherit;text-decoration:none}
   .container{max-width:var(--container);margin:0 auto;padding:0 24px}
 
-  /* ===== NAVBAR (idéntico al resto del sitio) ===== */
+  /* ===== NAVBAR ===== */
   .navbar{position:sticky;top:0;z-index:50;background:rgba(7,11,24,.78);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
   .navbar .container{display:flex;align-items:center;justify-content:space-between;height:68px;padding:0 24px}
   .logo a{display:flex;align-items:center;gap:12px}
@@ -58,8 +58,8 @@
   nav a.nav-live::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--live);margin-right:7px;vertical-align:middle;animation:pulse 2s infinite}
   @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(74,222,128,.55)}70%{box-shadow:0 0 0 7px rgba(74,222,128,0)}100%{box-shadow:0 0 0 0 rgba(74,222,128,0)}}
 
-  /* ===== HERO (oscuro, para enlazar con el resto) ===== */
-  .page-hero{position:relative;overflow:hidden;padding:72px 0 52px;
+  /* ===== HERO ===== */
+  .page-hero{position:relative;overflow:hidden;padding:66px 0 46px;
     background:radial-gradient(1200px 480px at 70% -10%, rgba(90,160,255,.18), transparent 60%),
       radial-gradient(900px 400px at 10% 0%, rgba(124,220,224,.12), transparent 55%),
       linear-gradient(180deg,#0a1228,var(--bg))}
@@ -79,8 +79,19 @@
   .page-hero h1 .hl{background:linear-gradient(90deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}
   .page-hero p.sub{color:var(--muted);max-width:62ch;margin-top:16px;font-size:1.05rem}
 
-  .countdown{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:28px}
-  .countdown .cd-label{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  /* Accesos rápidos a cada curso (evita que el visitante tenga que buscar) */
+  .jumps{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+  .jump{display:inline-flex;align-items:center;gap:10px;padding:10px 16px;border-radius:999px;
+    border:1px solid var(--border);background:var(--surface);font-size:.88rem;font-weight:600;color:var(--text);
+    transition:border-color .2s,transform .2s,background .2s}
+  .jump:hover{border-color:rgba(255,255,255,.28);transform:translateY(-2px);background:var(--surface-2)}
+  .jump .jd{width:8px;height:8px;border-radius:50%;flex:0 0 auto}
+  .jump .jd.gold{background:var(--gold)}
+  .jump .jd.blue{background:var(--accent)}
+  .jump small{color:var(--muted);font-weight:500}
+
+  .countdown{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:26px}
+  .countdown .cd-label{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600;max-width:26ch}
   .cd-boxes{display:flex;gap:10px}
   .cd-box{min-width:66px;text-align:center;border:1px solid var(--border);border-radius:14px;background:var(--surface);padding:10px 8px}
   .cd-num{font-size:1.5rem;font-weight:800;line-height:1;color:var(--gold);font-variant-numeric:tabular-nums}
@@ -88,10 +99,9 @@
   .cd-closed{font-size:.9rem;color:var(--muted);border:1px solid var(--border);background:var(--surface);padding:10px 16px;border-radius:999px;max-width:60ch}
 
   /* ===== ZONA CLARA ===== */
-  .light{background:var(--lt-bg);color:var(--lt-body);padding:60px 0 70px;
-    border-top:1px solid rgba(255,255,255,.06)}
+  .light{background:var(--lt-bg);color:var(--lt-body);padding:56px 0 70px;border-top:1px solid rgba(255,255,255,.06)}
   .light h2,.light h3,.light h4{color:var(--lt-ink)}
-  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:26px;padding-bottom:14px;border-bottom:1px solid var(--lt-line)}
+  .sec-head{display:flex;align-items:center;gap:14px;margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--lt-line)}
   .sec-head h2{font-size:1.45rem;font-weight:700}
   .sec-head .count{margin-left:auto;font-size:.78rem;color:var(--lt-blue);border:1px solid var(--lt-blue-line);
     padding:5px 12px;border-radius:999px;background:var(--lt-blue-bg);white-space:nowrap;font-weight:600}
@@ -99,87 +109,94 @@
   .lead h2{font-size:1.7rem;font-weight:700;margin-bottom:10px}
   .lead p{color:var(--lt-mut)}
 
-  /* ===== TARJETA DEL CURSO ===== */
-  .open-card{background:var(--lt-card);border:1px solid var(--lt-line);border-radius:var(--radius);overflow:hidden;
-    box-shadow:0 14px 40px rgba(9,17,40,.18)}
-  .oc-top{display:grid;grid-template-columns:1.4fr .85fr}
-  .oc-body{padding:34px}
-  .oc-flags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
-  .flag{font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px;border:1px solid}
+  /* ===== GRILLA DE LOS DOS CURSOS ===== */
+  .courses-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;align-items:stretch}
+
+  .course{display:flex;flex-direction:column;background:var(--lt-card);border:1px solid var(--lt-line);
+    border-radius:var(--radius);overflow:hidden;box-shadow:0 14px 40px rgba(9,17,40,.14);scroll-margin-top:90px}
+  .c-ribbon{height:5px}
+  .course.gold .c-ribbon{background:linear-gradient(90deg,#f5c451,#d99b2b)}
+  .course.blue .c-ribbon{background:linear-gradient(90deg,var(--accent),var(--accent-2))}
+
+  .c-head{padding:26px 26px 22px}
+  .c-flags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:14px}
+  .flag{font-size:.67rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;padding:5px 11px;border-radius:999px;border:1px solid}
   .flag-gold{background:var(--lt-amber-bg);border-color:var(--lt-amber-line);color:var(--lt-amber)}
   .flag-live{background:var(--lt-green-bg);border-color:var(--lt-green-line);color:var(--lt-green)}
+  .flag-blue{background:var(--lt-blue-bg);border-color:var(--lt-blue-line);color:var(--lt-blue)}
   .flag-soft{background:#f1f4fa;border-color:#e4e9f2;color:#586079}
-  .oc-body h3{font-size:clamp(1.5rem,3vw,2rem);font-weight:800;line-height:1.15;margin-bottom:12px}
-  .oc-claim{color:var(--lt-body);font-size:.98rem;max-width:58ch}
-  .oc-claim strong{color:var(--lt-ink);font-weight:600}
-  .oc-quest{margin-top:14px;padding:14px 18px;border-left:3px solid var(--lt-blue);background:var(--lt-soft);
-    border-radius:0 12px 12px 0;font-size:.92rem;color:var(--lt-body)}
+  .c-head h3{font-size:1.55rem;font-weight:800;line-height:1.15;letter-spacing:-.01em}
+  .c-sub{font-size:.9rem;color:var(--lt-mut);margin-top:5px;font-weight:500}
+  .c-claim{font-size:.93rem;color:var(--lt-body);margin-top:13px}
+  .c-claim strong{color:var(--lt-ink);font-weight:600}
 
-  /* Panel de inscripción (reemplaza al afiche) */
-  .oc-panel{background:linear-gradient(180deg,#0f1830,#152341);color:#e9eefb;padding:32px 30px;
-    display:flex;flex-direction:column;justify-content:center;gap:6px}
-  .oc-panel .p-k{font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:#9fb3d9;font-weight:700}
-  .oc-panel .p-price{font-size:2.6rem;font-weight:800;color:var(--gold);line-height:1.05;margin:6px 0 2px}
-  .oc-panel .p-note{font-size:.82rem;color:#a9b8d6}
-  .oc-panel .p-div{height:1px;background:rgba(255,255,255,.14);margin:20px 0}
-  .p-list{list-style:none;display:flex;flex-direction:column;gap:10px;font-size:.88rem;color:#cfd9ee}
-  .p-list li{display:flex;gap:10px;align-items:flex-start}
-  .p-list li b{color:#fff;font-weight:600}
-  .p-list .ic{flex:0 0 auto;opacity:.9}
-  .p-cta{display:block;text-align:center;margin-top:22px;padding:14px 20px;border-radius:999px;font-weight:700;font-size:.94rem;
-    background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#06122a;transition:transform .2s,box-shadow .2s}
-  .p-cta:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(90,160,255,.35)}
-  .p-mail{display:block;text-align:center;margin-top:10px;font-size:.82rem;color:#a9b8d6}
-  .p-mail:hover{color:#fff}
-
-  /* Datos clave */
-  .facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:1px;background:var(--lt-line);
+  /* Datos clave en rejilla compacta 2x3 */
+  .c-facts{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--lt-line);
     border-top:1px solid var(--lt-line);border-bottom:1px solid var(--lt-line)}
-  .fact{background:var(--lt-soft);padding:18px 22px}
-  .fact .k{font-size:.66rem;letter-spacing:.13em;text-transform:uppercase;color:var(--lt-mut);font-weight:700;margin-bottom:5px}
-  .fact .v{font-size:.98rem;font-weight:700;color:var(--lt-ink)}
-  .fact .v small{display:block;font-size:.76rem;font-weight:500;color:var(--lt-mut);margin-top:2px}
+  .c-fact{background:var(--lt-soft);padding:14px 18px}
+  .c-fact.wide{grid-column:1 / -1}
+  .c-fact .k{font-size:.63rem;letter-spacing:.13em;text-transform:uppercase;color:var(--lt-mut);font-weight:700;margin-bottom:4px}
+  .c-fact .v{font-size:.93rem;font-weight:700;color:var(--lt-ink);line-height:1.3}
+  .c-fact .v small{display:block;font-size:.75rem;font-weight:500;color:var(--lt-mut);margin-top:2px}
 
-  .oc-cols{display:grid;grid-template-columns:1.05fr .95fr}
-  .oc-col{padding:30px 34px}
-  .oc-col+.oc-col{border-left:1px solid var(--lt-line);background:var(--lt-soft)}
-  .oc-col h4{font-size:1.02rem;font-weight:700;margin-bottom:16px}
-  .learn{list-style:none;display:flex;flex-direction:column;gap:11px}
-  .learn li{font-size:.91rem;color:var(--lt-body);display:flex;gap:11px;align-items:flex-start}
-  .learn li::before{content:"✓";color:var(--lt-blue);font-weight:800;flex:0 0 auto}
-  .mods{display:flex;flex-direction:column;gap:9px}
-  .mod-row{display:flex;gap:13px;align-items:flex-start;border:1px solid var(--lt-line);border-radius:13px;background:var(--lt-card);padding:13px 15px}
-  .mod-n{flex:0 0 auto;width:28px;height:28px;border-radius:9px;display:grid;place-items:center;
-    font-size:.82rem;font-weight:800;color:var(--lt-blue);background:var(--lt-blue-bg);border:1px solid var(--lt-blue-line)}
-  .mod-t{font-size:.92rem;font-weight:600;line-height:1.35;color:var(--lt-ink)}
-  .mod-d{font-size:.79rem;color:var(--lt-mut);margin-top:3px}
-  .final-row{border-color:var(--lt-amber-line);background:var(--lt-amber-bg)}
-  .final-row .mod-n{color:var(--lt-amber);background:#fff;border-color:var(--lt-amber-line)}
-
-  /* Docente */
-  .teacher{display:flex;gap:20px;align-items:flex-start;padding:30px 34px;border-top:1px solid var(--lt-line);background:var(--lt-card)}
-  .teacher .av{flex:0 0 auto;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;font-size:1.5rem;
+  /* Docente en formato compacto */
+  .c-teacher{display:flex;gap:14px;align-items:flex-start;padding:20px 26px;border-bottom:1px solid var(--lt-line)}
+  .c-teacher .av{flex:0 0 auto;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-size:1.35rem;
     background:var(--lt-blue-bg);border:1px solid var(--lt-blue-line);overflow:hidden}
-  .teacher .av img{width:100%;height:100%;object-fit:cover}
-  .teacher .rol{font-size:.67rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lt-blue);font-weight:700}
-  .teacher .nom{font-size:1.1rem;font-weight:700;margin:3px 0 8px;color:var(--lt-ink)}
-  .teacher p{font-size:.89rem;color:var(--lt-body);max-width:80ch}
-  .creds{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-  .cred{font-size:.73rem;color:#586079;background:#f1f4fa;border:1px solid #e4e9f2;padding:4px 11px;border-radius:999px}
+  .course.gold .c-teacher .av{background:var(--lt-amber-bg);border-color:var(--lt-amber-line)}
+  .c-teacher .av img{width:100%;height:100%;object-fit:cover}
+  .c-teacher .rol{font-size:.63rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lt-mut);font-weight:700}
+  .c-teacher .nom{font-size:1.02rem;font-weight:700;color:var(--lt-ink);margin:2px 0 6px}
+  .c-teacher p{font-size:.84rem;color:var(--lt-body)}
 
-  .oc-foot{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between;
-    padding:22px 34px;border-top:1px solid var(--lt-line);background:var(--lt-blue-bg)}
-  .oc-foot .note{font-size:.86rem;color:#33507f;max-width:52ch}
-  .oc-foot .note strong{color:var(--lt-ink)}
-  .btn{display:inline-block;text-align:center;padding:12px 24px;border-radius:999px;font-weight:600;font-size:.92rem;
+  /* Bloque desplegable con el programa completo */
+  .c-more{border-bottom:1px solid var(--lt-line)}
+  .c-more>summary{list-style:none;cursor:pointer;padding:16px 26px;display:flex;align-items:center;gap:10px;
+    font-size:.89rem;font-weight:600;color:var(--lt-blue);background:var(--lt-soft);transition:background .2s}
+  .c-more>summary::-webkit-details-marker{display:none}
+  .c-more>summary:hover{background:var(--lt-blue-bg)}
+  .c-more>summary .chev{margin-left:auto;transition:transform .25s;font-size:.8rem}
+  .c-more[open]>summary .chev{transform:rotate(180deg)}
+  .c-more[open]>summary{border-bottom:1px solid var(--lt-line)}
+  .more-body{padding:24px 26px 4px}
+  .more-body h4{font-size:.94rem;font-weight:700;margin:0 0 13px}
+  .more-body h4+*{margin-top:0}
+  .more-body .blk+.blk{margin-top:24px;padding-top:22px;border-top:1px dashed var(--lt-line)}
+  .learn{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .learn li{font-size:.87rem;color:var(--lt-body);display:flex;gap:10px;align-items:flex-start}
+  .learn li::before{content:"✓";color:var(--lt-blue);font-weight:800;flex:0 0 auto}
+  .course.gold .learn li::before{color:var(--lt-amber)}
+  .mods{display:flex;flex-direction:column;gap:8px}
+  .mod-row{display:flex;gap:12px;align-items:flex-start;border:1px solid var(--lt-line);border-radius:12px;background:var(--lt-card);padding:12px 14px}
+  .mod-n{flex:0 0 auto;width:27px;height:27px;border-radius:9px;display:grid;place-items:center;
+    font-size:.78rem;font-weight:800;color:var(--lt-blue);background:var(--lt-blue-bg);border:1px solid var(--lt-blue-line)}
+  .course.gold .mod-n{color:var(--lt-amber);background:var(--lt-amber-bg);border-color:var(--lt-amber-line)}
+  .mod-t{font-size:.88rem;font-weight:600;line-height:1.35;color:var(--lt-ink);display:flex;gap:8px;align-items:baseline;flex-wrap:wrap}
+  .mod-t .hrs{font-size:.72rem;font-weight:600;color:var(--lt-mut);white-space:nowrap}
+  .mod-d{font-size:.78rem;color:var(--lt-mut);margin-top:3px}
+  .chips{display:flex;flex-wrap:wrap;gap:7px}
+  .chip{font-size:.75rem;color:#586079;background:#f1f4fa;border:1px solid #e4e9f2;padding:4px 11px;border-radius:999px}
+  .incl{list-style:none;display:flex;flex-direction:column;gap:8px}
+  .incl li{font-size:.85rem;color:var(--lt-body);display:flex;gap:10px;align-items:flex-start}
+
+  /* Pie de tarjeta: precio + acción (queda alineado entre ambas tarjetas) */
+  .c-foot{margin-top:auto;padding:22px 26px;background:var(--lt-blue-bg);border-top:1px solid var(--lt-blue-line)}
+  .course.gold .c-foot{background:var(--lt-amber-bg);border-top-color:var(--lt-amber-line)}
+  .price-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+  .price{font-size:1.9rem;font-weight:800;color:var(--lt-ink);line-height:1}
+  .price-k{font-size:.78rem;color:var(--lt-mut);font-weight:600}
+  .price-note{font-size:.79rem;color:var(--lt-mut)}
+  .btn{display:inline-block;text-align:center;padding:13px 24px;border-radius:999px;font-weight:700;font-size:.93rem;
     transition:transform .2s,box-shadow .2s,border-color .2s,background .2s}
-  .btn-dark{background:var(--lt-ink);color:#fff}
+  .btn-dark{background:var(--lt-ink);color:#fff;width:100%;margin-top:14px}
   .btn-dark:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(15,24,48,.28)}
   .btn-line{background:#fff;border:1px solid var(--lt-blue-line);color:var(--lt-blue)}
   .btn-line:hover{border-color:var(--lt-blue)}
+  .foot-mail{display:block;text-align:center;margin-top:10px;font-size:.8rem;color:var(--lt-mut)}
+  .foot-mail:hover{color:var(--lt-ink)}
 
   /* Pasos */
-  .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:16px;margin-top:30px}
+  .steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(215px,1fr));gap:16px;margin-top:28px}
   .step{border:1px solid var(--lt-line);border-radius:14px;background:var(--lt-card);padding:22px}
   .step .n{font-size:.7rem;font-weight:800;letter-spacing:.12em;color:var(--lt-blue);margin-bottom:9px}
   .step h4{font-size:.98rem;font-weight:600;margin-bottom:5px}
@@ -202,17 +219,16 @@
   .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(90,160,255,.3)}
   footer{padding:34px 0;text-align:center;color:var(--muted);font-size:.85rem;border-top:1px solid var(--border)}
 
-  @media(max-width:900px){
-    .oc-top{grid-template-columns:1fr}
-    .oc-cols{grid-template-columns:1fr}
-    .oc-col+.oc-col{border-left:none;border-top:1px solid var(--lt-line)}
+  @media(max-width:980px){
+    .courses-grid{grid-template-columns:1fr}
   }
   @media(max-width:560px){
     nav{gap:14px;overflow-x:auto}
     .brand-sub{display:none}
-    .oc-body,.oc-col,.teacher,.oc-foot,.oc-panel{padding-left:22px;padding-right:22px}
+    .c-head,.c-teacher,.c-foot,.more-body,.c-more>summary{padding-left:20px;padding-right:20px}
     .cd-box{min-width:58px}
-    .teacher{flex-direction:column}
+    .c-facts{grid-template-columns:1fr}
+    .c-fact.wide{grid-column:auto}
   }
 </style>
 </head>
@@ -246,15 +262,21 @@
   <div class="stars"></div>
   <div class="container">
     <span class="live-tag"><span class="live-dot"></span> Inscripciones abiertas</span>
-    <h1>Cursos con <span class="hl">inicio confirmado</span></h1>
+    <h1>Dos cursos con <span class="hl">inicio confirmado</span></h1>
     <p class="sub">
-      Aquí publicamos únicamente los programas con fecha de inicio definida y matrícula abierta.
-      Son cursos de cupo reducido: cuando se completan, el proceso se cierra antes de la fecha límite.
+      Aquí publicamos únicamente los programas con fecha definida y matrícula abierta.
+      Ambos son de cupo reducido: cuando se completan, el proceso se cierra antes de la fecha límite.
     </p>
 
-    <!-- Edita data-cierre con la fecha/hora de cierre (formato ISO) -->
-    <div class="countdown" id="countdown" data-cierre="2026-08-15T23:59:59-04:00">
-      <span class="cd-label">Cierre de inscripciones en</span>
+    <!-- Accesos directos: el visitante elige antes de bajar -->
+    <div class="jumps">
+      <a class="jump" href="#nanosatelites"><span class="jd blue"></span> Fundamentos de Nanosatélites <small>· desde el 29 de septiembre</small></a>
+      <a class="jump" href="#dominio-espacial"><span class="jd gold"></span> Introducción al Dominio Espacial <small>· desde el 6 de octubre</small></a>
+    </div>
+
+    <!-- EDITAR: data-cierre = fecha/hora de cierre del curso más próximo (formato ISO) -->
+    <div class="countdown" id="countdown" data-cierre="2026-09-28T23:59:59-03:00">
+      <span class="cd-label">Cierra la convocatoria más próxima en</span>
       <div class="cd-boxes">
         <div class="cd-box"><div class="cd-num" id="cd-d">--</div><div class="cd-unit">Días</div></div>
         <div class="cd-box"><div class="cd-num" id="cd-h">--</div><div class="cd-unit">Horas</div></div>
@@ -265,142 +287,317 @@
   </div>
 </section>
 
-<!-- ===================== ZONA CLARA: CURSO ABIERTO ===================== -->
+<!-- ===================== ZONA CLARA: CURSOS ABIERTOS ===================== -->
 <section class="light">
   <div class="container">
 
     <div class="sec-head">
-      <h2>Próximo inicio</h2>
-      <span class="count">1 curso disponible</span>
+      <h2>Próximos inicios</h2>
+      <span class="count">2 cursos disponibles</span>
     </div>
 
-    <!-- ▼▼ DUPLICA ESTE BLOQUE PARA AGREGAR OTRO CURSO ▼▼ -->
-    <article class="open-card" id="calidad-datos-geoespaciales">
+    <div class="courses-grid">
 
-      <div class="oc-top">
-        <div class="oc-body">
-          <div class="oc-flags">
-            <span class="flag flag-gold">Cupos limitados · 10 participantes</span>
+      <!-- ============================================================ -->
+      <!-- CURSO 1 · FUNDAMENTOS DE NANOSATÉLITES                       -->
+      <!-- ============================================================ -->
+      <article class="course blue" id="nanosatelites">
+        <div class="c-ribbon"></div>
+
+        <div class="c-head">
+          <div class="c-flags">
+            <span class="flag flag-blue">Comienza primero</span>
             <span class="flag flag-live">Inscripciones abiertas</span>
-            <span class="flag flag-soft">Nivel medio</span>
+            <span class="flag flag-soft">Nivel introductorio</span>
           </div>
-          <h3>Calidad de Datos Geoespaciales</h3>
-          <p class="oc-claim">
-            Si no sabemos si nuestros datos están correctos, todo lo que desarrollemos sobre ellos pierde valor.
-            Un curso dirigido a profesionales que <strong>producen, administran o utilizan información geoespacial</strong>
-            y necesitan determinar si sus datos son adecuados para su propósito.
-          </p>
-          <p class="oc-quest">
-            ¿Existen normativas que regulen esto? ¿Qué controles de exactitud y precisión podemos realizar?
-            ¿Cómo detectamos errores topológicos y geométricos? ¿Qué criterios de conformidad usar?
-            ¿Cómo elaborar informes de control de calidad?
+          <h3>Fundamentos de Nanosatélites</h3>
+          <p class="c-sub">Diseño, componentes y aplicaciones</p>
+          <p class="c-claim">
+            Cómo se <strong>diseña, desarrolla y opera</strong> una misión con pequeños satélites.
+            Recorre el ciclo de vida completo de un CubeSat, desde la definición de la misión
+            hasta su lanzamiento y operación en órbita.
           </p>
         </div>
 
-        <!-- Panel de inscripción: no requiere subir imágenes -->
-        <aside class="oc-panel">
-          <div class="p-k">Valor por participante</div>
-          <div class="p-price">$190.000</div>
-          <div class="p-note">Pago con Webpay, tarjetas de crédito y débito</div>
-
-          <div class="p-div"></div>
-
-          <ul class="p-list">
-            <li><span class="ic">🎥</span><div>Modalidad <b>online sincrónica</b>, clases en vivo</div></li>
-            <li><span class="ic">🗓️</span><div>Martes y jueves, <b>19:00 – 21:00 h</b></div></li>
-            <li><span class="ic">⏱️</span><div><b>16 horas</b> en 4 semanas</div></li>
-            <li><span class="ic">👥</span><div>Cupo máximo: <b>10 participantes</b></div></li>
-            <li><span class="ic">📝</span><div>Inscripciones del <b>5 al 15 de agosto</b></div></li>
-          </ul>
-
-          <a class="p-cta" href="contacto.html?modalidad=sincronico&amp;area=Datos%20Geoespaciales&amp;curso=Calidad%20de%20Datos%20Geoespaciales">Reservar mi cupo →</a>
-          <a class="p-mail" href="mailto:contacto.cetye@gmail.com?subject=Consulta%20curso%20Calidad%20de%20Datos%20Geoespaciales">o escríbenos a contacto.cetye@gmail.com</a>
-        </aside>
-      </div>
-
-      <div class="facts">
-        <div class="fact"><div class="k">Modalidad</div><div class="v">Online sincrónica<small>Clases en vivo</small></div></div>
-        <div class="fact"><div class="k">Horario</div><div class="v">Martes y jueves<small>19:00 – 21:00 h</small></div></div>
-        <div class="fact"><div class="k">Duración</div><div class="v">16 horas<small>4 semanas</small></div></div>
-        <div class="fact"><div class="k">Inscripciones</div><div class="v">5 al 15 de agosto<small>o hasta completar cupos</small></div></div>
-        <div class="fact"><div class="k">Nivel</div><div class="v">Medio<small>Enfoque práctico</small></div></div>
-      </div>
-
-      <div class="oc-cols">
-        <div class="oc-col">
-          <h4>🎯 Durante el curso aprenderás a</h4>
-          <ul class="learn">
-            <li>Aplicar los principios de las normas ISO 19131, ISO 19157 e ISO 19115-1.</li>
-            <li>Diseñar perfiles y matrices de evaluación de calidad.</li>
-            <li>Evaluar completitud, consistencia lógica, exactitud posicional y temática, y calidad temporal.</li>
-            <li>Detectar errores topológicos, geométricos y de atributos mediante QGIS.</li>
-            <li>Establecer criterios de conformidad y elaborar informes de calidad.</li>
-            <li>Determinar si los datos deben ser aceptados, corregidos o rechazados.</li>
-          </ul>
+        <div class="c-facts">
+          <div class="c-fact"><div class="k">Inicio</div><div class="v">Martes 29 de septiembre<small>Termina el jueves 22 de octubre</small></div></div>
+          <div class="c-fact"><div class="k">Horario</div><div class="v">Martes y jueves<small>19:30 – 21:30 h</small></div></div>
+          <div class="c-fact"><div class="k">Duración</div><div class="v">16 horas<small>8 sesiones · 4 semanas</small></div></div>
+          <div class="c-fact"><div class="k">Modalidad</div><div class="v">Online sincrónica<small>Clases en vivo</small></div></div>
         </div>
 
-        <div class="oc-col">
-          <h4>📚 Contenidos del curso</h4>
-          <div class="mods">
-            <div class="mod-row">
-              <span class="mod-n">1</span>
-              <div><div class="mod-t">Fundamentos de la calidad geoespacial</div>
-              <div class="mod-d">Aptitud para el uso · Exactitud, precisión, error e incertidumbre · Normas ISO · Linaje y trazabilidad</div></div>
-            </div>
-            <div class="mod-row">
-              <span class="mod-n">2</span>
-              <div><div class="mod-t">Diseño de una evaluación de calidad</div>
-              <div class="mod-d">Requisitos y especificaciones · Alcance y unidad de calidad · Métodos y datos de referencia · Criterios de conformidad</div></div>
-            </div>
-            <div class="mod-row">
-              <span class="mod-n">3</span>
-              <div><div class="mod-t">Evaluación de los componentes de calidad</div>
-              <div class="mod-d">Completitud y consistencia lógica · Topología, atributos y dominios · Exactitud posicional y temática · Controles prácticos en QGIS</div></div>
-            </div>
-            <div class="mod-row">
-              <span class="mod-n">4</span>
-              <div><div class="mod-t">Conformidad y comunicación de resultados</div>
-              <div class="mod-d">Indicadores y registro de errores · Representación cartográfica · Declaración de conformidad · Informes y metadatos</div></div>
-            </div>
-            <div class="mod-row final-row">
-              <span class="mod-n">★</span>
-              <div><div class="mod-t">Actividad final</div>
-              <div class="mod-d">Caso práctico: perfil de calidad, matriz de evaluación, controles en QGIS, análisis de resultados e informe breve.</div></div>
-            </div>
+        <div class="c-teacher">
+          <div class="av">
+            <!-- Foto opcional: <img src="assets/equipo/rodolfo-hott.jpg" alt="Rodolfo Hott Schulz"> -->
+            📡
+          </div>
+          <div>
+            <div class="rol">Profesor</div>
+            <div class="nom">Rodolfo Hott Schulz</div>
+            <p>
+              Ingeniero Electrónico con experiencia en telecomunicaciones, sistemas satelitales
+              y gestión tecnológica. Formación especializada en <strong>AIT para CubeSats</strong>
+              (Universidad Sapienza de Roma, Italia).
+            </p>
           </div>
         </div>
-      </div>
 
-      <div class="teacher">
-        <div class="av">
-          <!-- Si quieres su foto: <img src="assets/equipo/joselyn.jpg" alt="Joselyn Robledo"> -->
-          👩‍🏫
+        <details class="c-more">
+          <summary>Ver programa completo, trayectoria y qué incluye <span class="chev">⌄</span></summary>
+          <div class="more-body">
+
+            <div class="blk">
+              <h4>📚 Estructura del curso</h4>
+              <div class="mods">
+                <div class="mod-row">
+                  <span class="mod-n">1</span>
+                  <div>
+                    <div class="mod-t">Diseño de misión y órbitas</div>
+                    <div class="mod-d">Definición de la misión · Conceptos básicos de mecánica orbital · Selección de órbita según objetivo</div>
+                  </div>
+                </div>
+                <div class="mod-row">
+                  <span class="mod-n">2</span>
+                  <div>
+                    <div class="mod-t">Plataforma: estructura, energía y computador de abordo</div>
+                    <div class="mod-d">Estándar CubeSat · Presupuesto de potencia · Paneles y baterías · Computador de abordo y software de vuelo</div>
+                  </div>
+                </div>
+                <div class="mod-row">
+                  <span class="mod-n">3</span>
+                  <div>
+                    <div class="mod-t">Comunicaciones y control de actitud</div>
+                    <div class="mod-d">Enlaces y bandas de frecuencia · Antenas · Determinación y control de actitud (ADCS)</div>
+                  </div>
+                </div>
+                <div class="mod-row">
+                  <span class="mod-n">4</span>
+                  <div>
+                    <div class="mod-t">Cargas útiles y aplicaciones</div>
+                    <div class="mod-d">Observación de la Tierra · Comunicaciones · Gestión de emergencias · Medioambiente e investigación científica</div>
+                  </div>
+                </div>
+                <div class="mod-row">
+                  <span class="mod-n">5</span>
+                  <div>
+                    <div class="mod-t">Integración y ensayos ambientales</div>
+                    <div class="mod-d">Assembly, Integration and Testing (AIT) · Ensayos de vibración, vacío térmico y compatibilidad</div>
+                  </div>
+                </div>
+                <div class="mod-row">
+                  <span class="mod-n">6</span>
+                  <div>
+                    <div class="mod-t">Segmento terrestre y operación en órbita</div>
+                    <div class="mod-d">Estación terrena · Planificación de pasadas · Telemetría, seguimiento y comando · Operación de la misión</div>
+                  </div>
+                </div>
+                <div class="mod-row">
+                  <span class="mod-n">7</span>
+                  <div>
+                    <div class="mod-t">Lanzamiento y tendencias del sector</div>
+                    <div class="mod-d">Opciones de lanzamiento y despliegue · Constelaciones · Nuevos actores y oportunidades del sector espacial</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="blk">
+              <h4>🎯 Al terminar serás capaz de</h4>
+              <ul class="learn">
+                <li>Comprender el ciclo de vida de un nanosatélite, desde la definición de la misión hasta la operación en órbita.</li>
+                <li>Reconocer los principales subsistemas de una plataforma CubeSat y explicar sus funciones.</li>
+                <li>Identificar aplicaciones en observación de la Tierra, comunicaciones, emergencias, medioambiente e investigación.</li>
+                <li>Dimensionar los requisitos de una misión y su segmento terrestre asociado.</li>
+              </ul>
+            </div>
+
+            <div class="blk">
+              <h4>👤 Trayectoria del profesor</h4>
+              <ul class="learn">
+                <li>Ingeniero Electrónico y Licenciado en Ciencias de la Ingeniería Electrónica.</li>
+                <li>Formación en <strong>Assembly, Integration and Testing (AIT)</strong> para satélites CubeSat, Universidad Sapienza de Roma.</li>
+                <li>Operación y administración de sistemas satelitales del programa internacional <strong>COSPAS-SARSAT</strong>, incluida la coordinación técnica para su certificación internacional.</li>
+                <li>Participación en la planificación e implementación de capacidades espaciales y en iniciativas de I+D, innovación y transferencia tecnológica.</li>
+              </ul>
+            </div>
+
+            <div class="blk">
+              <h4>🙋 Dirigido a</h4>
+              <div class="chips">
+                <span class="chip">Estudiantes de ingeniería y ciencias</span>
+                <span class="chip">Profesionales del sector tecnológico</span>
+                <span class="chip">Equipos de I+D e innovación</span>
+                <span class="chip">Docentes y academia</span>
+                <span class="chip">Interesados en el sector espacial</span>
+              </div>
+            </div>
+
+            <div class="blk">
+              <h4>✅ Como participante contarás con</h4>
+              <ul class="incl">
+                <li>🎥 <span>Clases sincrónicas online con el profesor, en el horario indicado.</span></li>
+                <li>💻 <span>Acceso a la plataforma <strong>Moodle de CETYE</strong> con presentaciones y recursos complementarios.</span></li>
+                <li>📄 <span>Material de apoyo disponible durante todo el desarrollo del curso.</span></li>
+                <li>💬 <span>Espacios de consulta e interacción directa con el docente en cada clase.</span></li>
+                <li>🎓 <span>Diploma certificado por el Centro de Estudios de la Tierra y el Espacio.</span></li>
+              </ul>
+            </div>
+
+          </div>
+        </details>
+
+        <div class="c-foot">
+          <div class="price-row">
+            <span class="price">$190.000</span>
+            <span class="price-k">por participante</span>
+          </div>
+          <p class="price-note">Webpay (crédito en cuotas y débito) y transferencia bancaria · Cupos limitados.</p>
+          <a class="btn btn-dark" href="contacto.html?modalidad=sincronico&amp;area=Aeron%C3%A1utica%20y%20Ciencias%20Espaciales&amp;curso=nanosatelites">Reservar mi cupo →</a>
+          <a class="foot-mail" href="mailto:contacto.cetye@gmail.com?subject=Consulta%20curso%20Fundamentos%20de%20Nanosat%C3%A9lites">o escríbenos a contacto.cetye@gmail.com</a>
         </div>
-        <div>
-          <div class="rol">Docente del curso</div>
-          <div class="nom">Joselyn Robledo Ceballos</div>
-          <p>
-            Especialista con más de 20 años de experiencia profesional en calidad de datos geoespaciales y 18 años de
-            trayectoria docente. Diseñó el modelo de control de calidad de datos geoespaciales del Servicio
-            Aerofotogramétrico de la Fuerza Aérea de Chile y participó, a través del Instituto Nacional de Normalización,
-            en el estudio de 33 Normas Chilenas asociadas a ISO/TC 211. Ha presentado investigaciones en Japón,
-            Estados Unidos e Italia.
+      </article>
+
+      <!-- ============================================================ -->
+      <!-- CURSO 2 · INTRODUCCIÓN AL DOMINIO ESPACIAL                   -->
+      <!-- ============================================================ -->
+      <article class="course gold" id="dominio-espacial">
+        <div class="c-ribbon"></div>
+
+        <div class="c-head">
+          <div class="c-flags">
+            <span class="flag flag-gold">Inédito en Chile</span>
+            <span class="flag flag-live">Inscripciones abiertas</span>
+            <span class="flag flag-soft">Nivel introductorio</span>
+          </div>
+          <h3>Introducción al Dominio Espacial</h3>
+          <p class="c-sub">Alfabetización espacial para decidir sobre el territorio</p>
+          <p class="c-claim">
+            El espacio como <strong>infraestructura civil esencial para Chile</strong>: capacidades,
+            gobernanza y aplicaciones en la gestión del territorio y las emergencias. Una visión
+            estratégica y aplicada, sin requisitos técnicos previos.
           </p>
-          <div class="creds">
-            <span class="cred">Experta Universitaria en Evaluación de la Calidad de la Información Geográfica · U. de Jaén, España</span>
-            <span class="cred">Coautora de la Guía de exactitud posicional del IPGH</span>
-            <span class="cred">Directora de Calidad e Innovación CETYE</span>
+        </div>
+
+        <div class="c-facts">
+          <div class="c-fact"><div class="k">Inicio</div><div class="v">Martes 6 de octubre<small>Termina el jueves 29</small></div></div>
+          <div class="c-fact"><div class="k">Horario</div><div class="v">Martes y jueves<small>19:30 – 21:30 h</small></div></div>
+          <div class="c-fact"><div class="k">Duración</div><div class="v">16 horas<small>8 sesiones · 4 semanas</small></div></div>
+          <div class="c-fact"><div class="k">Modalidad</div><div class="v">Remota sincrónica<small>Clases en vivo</small></div></div>
+        </div>
+
+        <div class="c-teacher">
+          <div class="av">
+            <!-- Foto opcional: <img src="assets/equipo/hernan-tello.jpg" alt="Hernán Tello Sepúlveda"> -->
+            🛰️
+          </div>
+          <div>
+            <div class="rol">Relator</div>
+            <div class="nom">Hernán Tello Sepúlveda</div>
+            <p>
+              Ingeniero aeronáutico, magíster en Ciencias y experto en espacio exterior.
+              Dirige el proyecto <strong>LikanSat</strong>, el primer satélite desarrollado íntegramente
+              desde una región de Chile.
+            </p>
           </div>
         </div>
-      </div>
 
-      <div class="oc-foot">
-        <p class="note"><strong>Solo 10 cupos.</strong> Se asignan por orden de confirmación, así que conviene reservar con anticipación.</p>
-        <a class="btn btn-dark" href="contacto.html?modalidad=sincronico&amp;area=Datos%20Geoespaciales&amp;curso=Calidad%20de%20Datos%20Geoespaciales">Quiero inscribirme →</a>
-      </div>
+        <details class="c-more">
+          <summary>Ver programa completo, trayectoria y qué incluye <span class="chev">⌄</span></summary>
+          <div class="more-body">
 
-    </article>
-    <!-- ▲▲ FIN DEL BLOQUE DE CURSO ▲▲ -->
+            <div class="blk">
+              <h4>📚 Estructura del curso</h4>
+              <div class="mods">
+                <div class="mod-row">
+                  <span class="mod-n">I</span>
+                  <div>
+                    <div class="mod-t">Fundamentos del dominio espacial <span class="hrs">4 h</span></div>
+                    <div class="mod-d">Órbitas y tipos de misión · Plataformas satelitales y segmento terreno · Cadena de valor del sector · El espacio en la vida cotidiana</div>
+                  </div>
+                </div>
+                <div class="mod-row">
+                  <span class="mod-n">II</span>
+                  <div>
+                    <div class="mod-t">Aplicaciones espaciales para Chile <span class="hrs">6 h</span></div>
+                    <div class="mod-d">Gestión territorial · Recursos hídricos, glaciares y sequía · Emergencias y desastres · Agricultura, minería y borde costero · Conectividad en zonas aisladas</div>
+                  </div>
+                </div>
+                <div class="mod-row">
+                  <span class="mod-n">III</span>
+                  <div>
+                    <div class="mod-t">Gobernanza y soberanía espacial civil <span class="hrs">3 h</span></div>
+                    <div class="mod-d">Tratados y principios del derecho espacial · Naciones Unidas y COPUOS · Política Nacional Espacial · Soberanía tecnológica y control de datos críticos</div>
+                  </div>
+                </div>
+                <div class="mod-row">
+                  <span class="mod-n">IV</span>
+                  <div>
+                    <div class="mod-t">Desarrollo y futuro espacial de Chile <span class="hrs">3 h</span></div>
+                    <div class="mod-d">Programa Nacional Espacial y Centro Espacial Nacional · Iniciativas regionales y CubeSats · Formación de talento e industria proveedora · Tendencias globales</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="blk">
+              <h4>🎯 Al terminar serás capaz de</h4>
+              <ul class="learn">
+                <li>Interpretar la terminología del sector y explicar cómo opera un sistema satelital de extremo a extremo.</li>
+                <li>Identificar qué producto o servicio espacial responde a un problema concreto de tu organización.</li>
+                <li>Comprender el marco normativo aplicable y argumentar por qué las capacidades propias son una decisión estratégica.</li>
+                <li>Ubicar a tu institución dentro del ecosistema espacial y detectar oportunidades de participación.</li>
+              </ul>
+            </div>
+
+            <div class="blk">
+              <h4>👤 Trayectoria del relator</h4>
+              <ul class="learn">
+                <li>Ex <strong>Director Técnico del Programa SNSAT</strong> — FACh, el Sistema Nacional Satelital.</li>
+                <li>Ex <strong>Subdirector de Asuntos Espaciales</strong> — FACh, Dirección Espacial.</li>
+                <li>Delegado y expositor de Chile ante <strong>Naciones Unidas (COPUOS)</strong> en materia espacial, en Viena.</li>
+                <li>Líder del proyecto <strong>LikanSat</strong> (CINNDA, Antofagasta).</li>
+              </ul>
+            </div>
+
+            <div class="blk">
+              <h4>🙋 Dirigido a</h4>
+              <div class="chips">
+                <span class="chip">Sector público y gobiernos regionales</span>
+                <span class="chip">Gestión de emergencias</span>
+                <span class="chip">Industria y servicios</span>
+                <span class="chip">Docentes y academia</span>
+                <span class="chip">Ecosistema tecnológico</span>
+                <span class="chip">Estudiantes de pregrado y posgrado</span>
+              </div>
+            </div>
+
+            <div class="blk">
+              <h4>✅ Como participante contarás con</h4>
+              <ul class="incl">
+                <li>🎥 <span>Clases sincrónicas online con el relator, en el horario indicado.</span></li>
+                <li>💻 <span>Acceso a la plataforma <strong>Moodle de CETYE</strong> con presentaciones, lecturas y recursos.</span></li>
+                <li>📄 <span>Material de apoyo disponible durante todo el desarrollo del curso.</span></li>
+                <li>💬 <span>Espacios de consulta e interacción directa con el docente en cada clase.</span></li>
+                <li>🎓 <span>Diploma certificado por el Centro de Estudios de la Tierra y el Espacio.</span></li>
+              </ul>
+            </div>
+
+          </div>
+        </details>
+
+        <div class="c-foot">
+          <div class="price-row">
+            <span class="price">$190.000</span>
+            <span class="price-k">por participante</span>
+          </div>
+          <p class="price-note">Webpay (crédito en cuotas y débito) y transferencia bancaria · Cupos limitados.</p>
+          <a class="btn btn-dark" href="contacto.html?modalidad=sincronico&amp;area=Aeron%C3%A1utica%20y%20Ciencias%20Espaciales&amp;curso=dominio-espacial">Reservar mi cupo →</a>
+          <a class="foot-mail" href="mailto:contacto.cetye@gmail.com?subject=Consulta%20curso%20Introducci%C3%B3n%20al%20Dominio%20Espacial">o escríbenos a contacto.cetye@gmail.com</a>
+        </div>
+      </article>
+
+    </div>
+    <!-- ▲ fin de la grilla de cursos -->
 
     <!-- ===== CÓMO INSCRIBIRSE ===== -->
     <div class="lead" style="margin-top:64px">
@@ -439,7 +636,7 @@
 <section class="cta">
   <div class="container">
     <h2>¿Dudas antes de inscribirte?</h2>
-    <p>Cuéntanos tu perfil y te orientamos sobre si el curso se ajusta a lo que necesitas.</p>
+    <p>Cuéntanos tu perfil y te orientamos sobre cuál de los dos programas se ajusta a lo que necesitas.</p>
     <a href="contacto.html" class="btn-primary">Contáctanos</a>
   </div>
 </section>
@@ -449,7 +646,7 @@
 </footer>
 
 <script>
-  /* Cuenta regresiva hasta el cierre de inscripciones */
+  /* Cuenta regresiva hasta el cierre de la convocatoria más próxima */
   (function () {
     var wrap = document.getElementById('countdown');
     if (!wrap) return;
@@ -466,7 +663,7 @@
     function tick() {
       var falta = fin - Date.now();
       if (falta <= 0) {
-        wrap.innerHTML = '<span class="cd-closed">El plazo de inscripción publicado ya finalizó. Escríbenos para consultar por cupos de última hora o por la próxima versión del curso.</span>';
+        wrap.innerHTML = '<span class="cd-closed">El plazo publicado ya finalizó. Escríbenos para consultar por cupos de última hora o por la próxima versión del curso.</span>';
         clearInterval(timer);
         return;
       }
@@ -478,6 +675,20 @@
     }
     tick();
     var timer = setInterval(tick, 1000);
+  })();
+
+  /* Si llegan con un ancla (#dominio-espacial / #nanosatelites), abrimos su programa */
+  (function () {
+    function abrir() {
+      var id = window.location.hash.replace('#', '');
+      if (!id) return;
+      var card = document.getElementById(id);
+      if (!card) return;
+      var det = card.querySelector('details.c-more');
+      if (det) det.open = true;
+    }
+    window.addEventListener('hashchange', abrir);
+    abrir();
   })();
 </script>
 

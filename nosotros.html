@@ -1,17 +1,17 @@
-<link rel="stylesheet" href="style.css">
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Nosotros — CETYE</title>
+<link rel="stylesheet" href="style.css">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-<!-- Ajuste de la grilla del equipo para dos integrantes -->
+<!-- Grilla del equipo: tarjetas verticales en 2x2 -->
 <style>
     .team-section .team-grid {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 2rem;
         max-width: 940px;
         margin-left: auto;
@@ -19,9 +19,8 @@
     }
 
     .team-section .team-card {
-        display: grid;
-        grid-template-columns: 260px 1fr;
-        align-items: stretch;
+        display: flex;
+        flex-direction: column;
         overflow: hidden;
         width: 100%;
         max-width: none;
@@ -30,8 +29,7 @@
 
     .team-section .team-card-photo {
         width: 100%;
-        height: 100%;
-        min-height: 280px;
+        height: 320px;
         object-fit: cover;
         object-position: center top;
         display: block;
@@ -42,13 +40,9 @@
     .team-section .team-card-body {
         display: flex;
         flex-direction: column;
-        justify-content: center;
         gap: .4rem;
-        padding: 2rem 2.2rem;
-    }
-
-    .team-section .team-card-bio {
-        max-width: 62ch;
+        padding: 1.8rem;
+        flex: 1;
     }
 
     .team-section .section-sub {
@@ -59,15 +53,11 @@
 
     @media (max-width: 820px) {
         .team-section .team-grid {
+            grid-template-columns: 1fr;
             max-width: 480px;
         }
 
-        .team-section .team-card {
-            grid-template-columns: 1fr;
-        }
-
         .team-section .team-card-photo {
-            min-height: 0;
             height: 300px;
         }
 
@@ -122,13 +112,13 @@
                     En CETYE creemos que el conocimiento especializado en ciencias de la Tierra y el espacio debe ser accesible y aplicable.
                     Formamos a los profesionales que Chile y la región necesitan para liderar la transición hacia una gestión territorial
                     inteligente, basada en datos y tecnologías de vanguardia.
-				</p>
-				<br>
-				<p>
-					Nuestra Misión es difundir conocimiento, educar y capacitar a personas, en el ámbito de las Ciencias de la Tierra y el Espacio, 
-					optimizando su desempeño y el de las organizaciones a las que ellas pertenecen, satisfaciendo sus requerimientos a través de procesos 
-					de enseñanza basados en el desarrollo de competencias y alineados con las necesidades reales de la industria, 
-					con el propósito de aportar al desarrollo de las personas, la industria nacional y la humanidad.
+                </p>
+                <br>
+                <p>
+                    Nuestra Misión es difundir conocimiento, educar y capacitar a personas, en el ámbito de las Ciencias de la Tierra y el Espacio,
+                    optimizando su desempeño y el de las organizaciones a las que ellas pertenecen, satisfaciendo sus requerimientos a través de procesos
+                    de enseñanza basados en el desarrollo de competencias y alineados con las necesidades reales de la industria,
+                    con el propósito de aportar al desarrollo de las personas, la industria nacional y la humanidad.
                 </p>
             </div>
             <div class="values-list">
@@ -170,8 +160,8 @@
     <div class="container">
         <h2>El Equipo CETYE</h2>
         <p class="section-sub">
-            Un equipo directivo con trayectorias complementarias en ciencia, tecnología e innovación, unido por la convicción de que
-            el conocimiento aplicado transforma territorios y personas.
+            Cuatro reconocidos líderes, con trayectorias y experiencias complementarias en ciencia, tecnología e innovación,
+            unidos por la convicción de que el conocimiento aplicado transforma territorios y personas.
         </p>
 
         <div class="team-grid">
@@ -180,15 +170,15 @@
             <div class="team-card">
                 <img class="team-card-photo" src="assets/equipo/roxana.jpg" alt="Dra. Roxana Trujillo">
                 <div class="team-card-body">
-                    <div class="team-card-role">Directora Ejecutiva</div>
+                    <div class="team-card-role">Socia Fundadora - Directora Ejecutiva</div>
                     <div class="team-card-name">Dra. Roxana Trujillo</div>
                     <p class="team-card-bio">
                         Doctora en Informática, experta en Teledetección y análisis de
-						datos geoespaciales, con amplia trayectoria en gestión científica, liderazgo institucional
-						y 15 años de experiencia en docencia universitaria de pregrado y postgrado. Ha dirigido proyectos
-						de investigación aplicada en ciencias de la Tierra y Tecnología aplicada, articulando vínculos entre la academia,
-						el sector público y la industria. Su visión estratégica orienta el desarrollo de CETYE hacia la
-						formación de excelencia con impacto regional.
+                        datos geoespaciales, con amplia trayectoria en gestión científica, liderazgo institucional
+                        y 15 años de experiencia en docencia universitaria de pregrado y postgrado. Ha dirigido proyectos
+                        de investigación aplicada en ciencias de la Tierra y Tecnología aplicada, articulando vínculos entre la academia,
+                        el sector público y la industria. Su visión estratégica orienta el desarrollo de CETYE hacia la
+                        formación de excelencia con impacto regional.
                     </p>
                 </div>
             </div>
@@ -197,14 +187,48 @@
             <div class="team-card">
                 <img class="team-card-photo" src="assets/equipo/joselyn.jpg" alt="Msc. Joselyn Robledo">
                 <div class="team-card-body">
-                    <div class="team-card-role">Directora Académica</div>
+                    <div class="team-card-role">Socia - Directora Académica</div>
                     <div class="team-card-name">Msc. Joselyn Robledo</div>
                     <p class="team-card-bio">
-						Profesional con experiencia en Innovación, IA y gestión de proyectos tecnológicos,
-						con trayectoria en iniciativas CORFO y ANID. Especialista en programas de capacitación en
-						transformación digital, análisis de datos y emprendimiento. Cuenta con experiencia en articulación público-privada,
-						evaluación de proyectos y transferencia tecnológica, con enfoque en impacto y desarrollo sostenible. Lidera el diseño
-						de los programas formativos de CETYE y sus procesos de evaluación y mejora continua.
+                        Profesional con experiencia en Innovación, IA y gestión de proyectos tecnológicos,
+                        con trayectoria en iniciativas CORFO y ANID. Especialista en programas de capacitación en
+                        transformación digital, análisis de datos y emprendimiento. Cuenta con experiencia en articulación público-privada,
+                        evaluación de proyectos y transferencia tecnológica, con enfoque en impacto y desarrollo sostenible. Lidera el diseño
+                        de los programas formativos de CETYE y sus procesos de evaluación y mejora continua.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Rodrigo Suárez -->
+            <div class="team-card">
+                <img class="team-card-photo" src="assets/equipo/rodrigo.jpg" alt="Msc. Rodrigo Suárez">
+                <div class="team-card-body">
+                    <div class="team-card-role">Socio Fundador — Director Área Aeronáutica</div>
+                    <div class="team-card-name">Msc. Rodrigo Suárez</div>
+                    <p class="team-card-bio">
+                        Ingeniero Aeronáutico con amplia experiencia en gestión de sistemas tecnológicos complejos y docencia universitaria.
+                        Ex Coronel de la Fuerza Aérea de Chile, donde fue distinguido con la Cruz al Mérito Aeronáutico,
+                        y académico de la USM, liderando iniciativas en tecnología aeronáutica y espacial. Especialista en gestión de proyectos 
+						y formación académica, ha participado en instancias nacionales e internacionales en el ámbito aeronáutico y espacial.
+                        Como socio fundador, lidera el Área Aeronáutica de CETYE desde un rol estratégico: orienta su visión,
+                        resguarda la pertinencia técnica de sus programas y fortalece el vínculo con las instituciones del sector.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Hernán Tello -->
+            <div class="team-card">
+                <img class="team-card-photo" src="assets/equipo/hernan.jpg" alt="Msc. Hernán Tello">
+                <div class="team-card-body">
+                    <div class="team-card-role">Socio — Director Área Espacial</div>
+                    <div class="team-card-name">Msc. Hernán Tello</div>
+                    <p class="team-card-bio">
+                        Ingeniero Aeronáutico, Máster en Ingeniería Aeronáutica (USM) y en Ciencias Militares. Coronel (R) de la
+                        Fuerza Aérea de Chile, donde fue Subdirector de Asuntos Espaciales, Director Técnico del Programa Sistema
+                        Satelital Nacional (SNSAT) y Jefe de Misión del satélite FASAT Charlie. Representó a Chile ante la COPUOS de
+                        Naciones Unidas y fundador de diversas iniciativas espaciales. Como socio de CETYE,
+                        lidera el Área Espacial desde un rol estratégico, orientando su visión y articulando alianzas con el ecosistema
+                        espacial nacional e internacional.
                     </p>
                 </div>
             </div>

@@ -70,7 +70,7 @@
                 <form name="contacto" method="POST" netlify netlify-honeypot="bot-field" action="gracias.html">
                     <input type="hidden" name="form-name" value="contacto">
                     <input type="hidden" name="modalidad" id="modalidad">
-                    <!-- NUEVO: guarda el curso concreto desde el que llegó la persona -->
+                    <!-- Guarda el curso concreto desde el que llegó la persona -->
                     <input type="hidden" name="curso" id="curso">
                     <p style="display:none"><label>No llenar: <input name="bot-field"></label></p>
 
@@ -127,15 +127,20 @@
     // ---- Cursos con inscripciones abiertas -------------------------------
     // La clave es el "slug" que viaja en la URL desde inscripciones.html.
     var cursos = {
-      'dominio-espacial': {
-        etiqueta: 'Introducción al Dominio Espacial',
+      'instruccion-aeronautica': {
+        etiqueta: 'Técnicas para la Instrucción en Aeronáutica',
         area: 'Aeronáutica y Ciencias Espaciales',
-        mensaje: 'Hola, quiero reservar mi cupo en el curso "Introducción al Dominio Espacial" (inicio martes 6 de octubre, martes y jueves de 19:30 a 21:30 h). Quedo atento/a a la confirmación de disponibilidad y al medio de pago.'
+        mensaje: 'Hola, me gustaría recibir más información sobre el curso "Técnicas para la Instrucción en Aeronáutica" (inicio martes 24 de noviembre, martes y jueves de 19:30 a 21:30 h). ¡Muchas gracias!'
       },
       'nanosatelites': {
         etiqueta: 'Fundamentos de Nanosatélites',
         area: 'Aeronáutica y Ciencias Espaciales',
-        mensaje: 'Hola, quiero reservar mi cupo en el curso "Fundamentos de Nanosatélites" (inicio martes 29 de septiembre, martes y jueves de 19:30 a 21:30 h). Quedo atento/a a la confirmación de disponibilidad y al medio de pago.'
+        mensaje: 'Hola, quisiera más información sobre el curso "Fundamentos de Nanosatélites" (inicio martes 24 de noviembre, martes y jueves de 19:30 a 21:30 h). ¡Muchas gracias!'
+      },
+      'dominio-espacial': {
+        etiqueta: 'Introducción al Dominio Espacial',
+        area: 'Aeronáutica y Ciencias Espaciales',
+        mensaje: 'Hola, quisiera más información sobre el curso "Introducción al Dominio Espacial" (inicio martes 24 de noviembre, martes y jueves de 19:30 a 21:30 h). ¡Muchas gracias!'
       }
     };
 
@@ -189,7 +194,11 @@
 
       if (hiddenCurso) hiddenCurso.value = etiqueta;
       if (aviso) {
-        aviso.innerHTML = 'Estás solicitando cupo en: <strong>' + etiqueta + '</strong>';
+        // Se inserta como texto (no como HTML) para evitar contenido malicioso desde la URL
+        aviso.textContent = 'Consulta sobre el curso: ';
+        var b = document.createElement('strong');
+        b.textContent = etiqueta;
+        aviso.appendChild(b);
         aviso.style.display = 'block';
       }
       if (mensaje && !mensaje.value && c) mensaje.value = c.mensaje;
